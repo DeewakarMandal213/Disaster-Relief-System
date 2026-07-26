@@ -55,7 +55,7 @@ const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Find User
+    // Check if user exists
     const user = await User.findOne({ email });
 
     if (!user) {
@@ -87,11 +87,23 @@ const loginUser = async (req, res) => {
       }
     );
 
+    // Remove password before sending user data
+    const userData = {
+      _id: user._id,
+      fullName: user.fullName,
+      email: user.email,
+      phone: user.phone,
+      address: user.address,
+      role: user.role,
+      createdAt: user.createdAt,
+      updatedAt: user.updatedAt,
+    };
+
     res.status(200).json({
       success: true,
       message: "Login Successful",
       token,
-      user,
+      user: userData,
     });
 
   } catch (error) {
