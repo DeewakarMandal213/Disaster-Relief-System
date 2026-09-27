@@ -1,17 +1,14 @@
 import "./Navbar.css";
 import logo from "../../assets/images/logo.jpg";
-
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
+      setScroll(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -20,42 +17,50 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className={scrolled ? "navbar active" : "navbar"}>
-      <div className="container">
+    <nav className={scroll ? "navbar glass" : "navbar"}>
+      <div className="nav-container">
 
-        <Link className="logo" to="/">
-            <img src={logo} alt="ReliefConnect" />
-
-            <div className="logo-text">
-                <span className="relief">Relief</span>
-                <span className="connect">Connect</span>
-            </div>
+        {/* Logo */}
+        <Link to="/" className="logo">
+          <img src={logo} alt="ReliefConnect" />
         </Link>
-        
-        <ul className={menuOpen ? "nav-links active" : "nav-links"}>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#volunteer">Volunteer</a></li>
-          <li><a href="#donation">Donate</a></li>
-          <li><a href="#contact">Contact</a></li>
 
-          <li className="nav-buttons">
-            <Link to="/login" className="login-btn">
-              Login
-            </Link>
+        {/* Navigation */}
+        <ul className="nav-links">
 
-            <Link to="/register" className="register-btn">
-              Register
-            </Link>
+          <li>
+            <a href="/#about">About</a>
           </li>
+
+          <li>
+            <a href="/#features">Features</a>
+          </li>
+
+          <li>
+            <a href="/#dashboard">Dashboard</a>
+          </li>
+
+          <li>
+            <a href="/#donation">Donate</a>
+          </li>
+
+          <li>
+            <a href="/#contact">Contact</a>
+          </li>
+
         </ul>
 
-        <div
-          className="hamburger"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
+        {/* Buttons */}
+        <div className="nav-buttons">
+
+          <Link to="/login" className="login-btn">
+            Login
+          </Link>
+
+          <Link to="/register" className="register-btn">
+            Register
+          </Link>
+
         </div>
 
       </div>

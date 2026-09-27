@@ -1,59 +1,217 @@
 import "./Donation.css";
+
 import donationImage from "../../assets/images/donation.jpg";
+
+import {
+  FaHandHoldingHeart,
+  FaShieldAlt,
+  FaMapMarkedAlt,
+  FaUsers,
+  FaArrowRight,
+} from "react-icons/fa";
+
 import { Link } from "react-router-dom";
-import { FaArrowRight, FaHandHoldingHeart } from "react-icons/fa";
 
 function Donation() {
   return (
-    <section className="donation" id="donation">
+    <section className="donation-section">
 
-      <div className="donation-container">
+      <div className="donation-visual">
+
+        {/* =========================================
+            BACKGROUND IMAGE
+        ========================================= */}
+
+        <img
+          src={donationImage}
+          alt="ReliefConnect donation and relief distribution"
+          className="donation-main-image"
+        />
+
+        {/* DARK OVERLAY */}
+
+        <div className="donation-overlay"></div>
+
+
+        {/* =========================================
+            MAIN CONTENT
+        ========================================= */}
 
         <div className="donation-content">
 
-          <span className="section-tag">MAKE A DIFFERENCE</span>
+          {/* SECTION LABEL */}
 
-          <h2>
+          <div className="donation-label">
+            MAKE A DIFFERENCE
+          </div>
+
+
+          {/* MAIN HEADING */}
+
+          <h1 className="donation-heading">
             Every Donation Brings
             <br />
-            Hope To Families
-          </h2>
+            Hope To Families.
+            <br />
 
-          <p>
+            <span>Together, We Rebuild Lives.</span>
+          </h1>
+
+
+          {/* DESCRIPTION */}
+
+          <p className="donation-description">
             Your contribution helps provide food, clean water,
             medicines, temporary shelter, rescue equipment and
             emergency supplies to disaster-affected communities
             across India.
           </p>
 
+
+          {/* =========================================
+              FEATURE TABS
+          ========================================= */}
+
           <div className="donation-features">
 
-            <div className="feature">
-              <FaHandHoldingHeart />
-              <span>100% Transparent Distribution</span>
+            {/* TAB 1 */}
+
+            <div className="donation-feature-card">
+
+              <div className="donation-feature-icon">
+                <FaHandHoldingHeart />
+              </div>
+
+              <div className="donation-feature-content">
+
+                <h3>
+                  100% Transparent Distribution
+                </h3>
+
+                <p>
+                  Every contribution reaches verified
+                  relief efforts.
+                </p>
+
+              </div>
+
             </div>
 
-            <div className="feature">
-              <FaHandHoldingHeart />
-              <span>Verified NGOs & Government Partners</span>
+
+            {/* TAB 2 */}
+
+            <div className="donation-feature-card">
+
+              <div className="donation-feature-icon">
+                <FaShieldAlt />
+              </div>
+
+              <div className="donation-feature-content">
+
+                <h3>
+                  Verified NGOs & Government Partners
+                </h3>
+
+                <p>
+                  Donations are coordinated with
+                  trusted organizations.
+                </p>
+
+              </div>
+
             </div>
 
-            <div className="feature">
-              <FaHandHoldingHeart />
-              <span>Live Donation Tracking</span>
+
+            {/* TAB 3 */}
+
+            <div className="donation-feature-card">
+
+              <div className="donation-feature-icon">
+                <FaMapMarkedAlt />
+              </div>
+
+              <div className="donation-feature-content">
+
+                <h3>
+                  Live Donation Tracking
+                </h3>
+
+                <p>
+                  Track how your contribution
+                  is being used.
+                </p>
+
+              </div>
+
             </div>
 
           </div>
 
-          <Link to="/register" className="primary-btn">
-            Donate Now
-            <FaArrowRight />
-          </Link>
 
-        </div>
+          {/* =========================================
+              BUTTONS
+          ========================================= */}
 
-        <div className="donation-image">
-          <img src={donationImage} alt="Donation" />
+          <div className="donation-actions">
+
+            <Link
+              to="/register"
+              className="donation-primary-btn"
+            >
+              Donate Now
+              <FaArrowRight />
+            </Link>
+
+
+            <Link
+              to="/login"
+              className="donation-secondary-btn"
+            >
+              Donation Tracking
+            </Link>
+
+          </div>
+
+
+          {/* =========================================
+              MOTIVATION BOX
+          ========================================= */}
+
+          <div className="donation-message">
+
+            <div className="donation-message-icon">
+              <FaUsers />
+            </div>
+
+            <p>
+              Your generosity can provide food, shelter,
+              medical care and hope to families when they
+              need it most.
+            </p>
+
+          </div>
+
+
+          {/* =========================================
+              BOTTOM MESSAGE
+          ========================================= */}
+
+          <div className="donation-bottom-message">
+
+            <strong>
+              Every Contribution Matters.
+            </strong>
+
+            <span className="donation-divider">
+              |
+            </span>
+
+            <span className="donation-highlight">
+              Give hope. Rebuild lives.
+            </span>
+
+          </div>
+
         </div>
 
       </div>

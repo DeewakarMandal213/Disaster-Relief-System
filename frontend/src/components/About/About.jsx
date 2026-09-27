@@ -1,64 +1,236 @@
 import "./About.css";
-import aboutImage from "../../assets/images/about.jpg";
 
 import {
-  FaHandsHelping,
+  FaBolt,
+  FaHandshake,
   FaMapMarkedAlt,
-  FaUsers,
-  FaShieldAlt,
 } from "react-icons/fa";
+
+import aboutImage from "../../assets/images/about.jpg";
 
 function About() {
   return (
-    <section className="about" id="about">
-      <div className="about-container">
+    <section className="about-section">
 
-        <div className="about-image">
-          <img src={aboutImage} alt="About ReliefConnect" />
-        </div>
+      <div className="about-visual">
+
+        {/* Background Image */}
+        <img
+          src={aboutImage}
+          alt="ReliefConnect disaster relief volunteers helping communities"
+          className="about-main-image"
+        />
+
+        {/* Dark overlay */}
+        <div className="about-image-overlay"></div>
+
+
+        {/* ================================
+            RIGHT CONTENT
+        ================================= */}
 
         <div className="about-content">
 
-          <span className="section-tag">ABOUT US</span>
+          {/* Label */}
+          <div className="about-label">
+            ABOUT RELIEFCONNECT
+          </div>
 
-          <h2>
-            One Platform for Faster
+
+          {/* Main Heading */}
+          <h1 className="about-heading">
+            One Platform.
             <br />
-            Disaster Response
-          </h2>
+            Countless Lives Protected.
+          </h1>
 
-          <p>
-            ReliefConnect is a disaster management platform that
-            connects citizens, volunteers, NGOs, donors, and
-            government authorities to coordinate rescue operations,
-            distribute relief materials, and provide emergency
-            assistance quickly and efficiently.
+
+          {/* Description */}
+          <p className="about-description">
+            ReliefConnect is a centralized disaster response platform
+            connecting citizens, volunteers, NGOs, donors and government
+            authorities to coordinate rescue operations, emergency support
+            and transparent relief distribution during natural disasters.
           </p>
 
-          <div className="about-grid">
 
-            <div className="about-card">
-              <FaHandsHelping />
-              <h4>Volunteer Network</h4>
-              <p>Verified volunteers ready to help.</p>
+          {/* ================================
+              FOUR FEATURE CARDS
+          ================================= */}
+
+          <div className="about-features">
+
+            {/* Fast Response */}
+            <div className="about-feature-card">
+
+              <div className="feature-icon">
+                <FaBolt />
+              </div>
+
+              <div className="feature-content">
+                <h3>Fast Response</h3>
+
+                <p>
+                  Immediate emergency coordination.
+                </p>
+              </div>
+
             </div>
 
-            <div className="about-card">
-              <FaMapMarkedAlt />
-              <h4>Live Tracking</h4>
-              <p>Monitor disasters and shelters in real time.</p>
+
+            {/* Verified Volunteers */}
+            <div className="about-feature-card">
+
+              <div className="feature-icon">
+                <FaHandshake />
+              </div>
+
+              <div className="feature-content">
+                <h3>Verified Volunteers</h3>
+
+                <p>
+                  Trusted community support.
+                </p>
+              </div>
+
             </div>
 
-            <div className="about-card">
-              <FaUsers />
-              <h4>Community Support</h4>
-              <p>Citizens and NGOs working together.</p>
+
+            {/* Live Tracking */}
+            <div className="about-feature-card">
+
+              <div className="feature-icon">
+                <FaMapMarkedAlt />
+              </div>
+
+              <div className="feature-content">
+                <h3>Live Tracking</h3>
+
+                <p>
+                  Monitor shelters and requests.
+                </p>
+              </div>
+
             </div>
 
-            <div className="about-card">
-              <FaShieldAlt />
-              <h4>Trusted Platform</h4>
-              <p>Secure coordination during emergencies.</p>
+
+            {/* Transparent Donations */}
+            <div className="about-feature-card">
+
+              <div className="feature-icon rupee-icon">
+                ₹
+              </div>
+
+              <div className="feature-content">
+                <h3>Transparent Donations</h3>
+
+                <p>
+                  Every contribution is accountable.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          {/* ================================
+              LEARN MORE
+              CENTERED UNDER 4 CARDS
+          ================================= */}
+
+          <div className="about-learn-wrapper">
+
+            <button className="about-learn-btn">
+              <span>Learn More</span>
+              <span className="learn-arrow">→</span>
+            </button>
+
+          </div>
+
+        </div>
+
+
+        {/* ================================
+            NGO PARTNERS
+        ================================= */}
+
+        <div className="ngo-partners">
+
+          <div className="ngo-title">
+            <h3>
+              Our NGO
+              <br />
+              Partners
+            </h3>
+          </div>
+
+
+          <div className="ngo-list">
+
+            <div className="ngo-card">
+              <div className="ngo-symbol">🌿</div>
+
+              <div>
+                <strong>SEVA SAATHI</strong>
+                <span>Together for Tomorrow</span>
+              </div>
+            </div>
+
+
+            <div className="ngo-card">
+              <div className="ngo-symbol">🤝</div>
+
+              <div>
+                <strong>SAKSHAM FOUNDATION</strong>
+                <span>Empowering Communities</span>
+              </div>
+            </div>
+
+
+            <div className="ngo-card">
+              <div className="ngo-symbol">💗</div>
+
+              <div>
+                <strong>CARE FOR ALL</strong>
+                <span>Humanity in Action</span>
+              </div>
+            </div>
+
+
+            <div className="ngo-card">
+              <div className="ngo-symbol">🌱</div>
+
+              <div>
+                <strong>PRAGATI FOUNDATION</strong>
+                <span>Building Better Lives</span>
+              </div>
+            </div>
+
+
+            <div className="ngo-card">
+              <div className="ngo-symbol">🕊️</div>
+
+              <div>
+                <strong>JAN KALYAN SEVA</strong>
+                <span>Stronger Communities</span>
+              </div>
+            </div>
+
+
+            <div className="ngo-card">
+              <div className="ngo-symbol">☀️</div>
+
+              <div>
+                <strong>AKSHAYA TRUST</strong>
+                <span>Hope. Help. Healing.</span>
+              </div>
+            </div>
+
+
+            <div className="ngo-more">
+              <strong>Many More</strong>
+              <span>Partners Across India</span>
             </div>
 
           </div>
@@ -66,6 +238,7 @@ function About() {
         </div>
 
       </div>
+
     </section>
   );
 }

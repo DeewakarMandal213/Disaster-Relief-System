@@ -1,12 +1,14 @@
 import "./Footer.css";
-import logo from "../../assets/images/logo-icon.png";
 
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
-  FaGithub
+  FaGithub,
+  FaHandsHelping
 } from "react-icons/fa";
+
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -14,12 +16,22 @@ function Footer() {
 
       <div className="footer-container">
 
+        {/* =========================
+            ABOUT
+        ========================= */}
+
         <div className="footer-about">
 
           <div className="footer-logo">
-            <img src={logo} alt="ReliefConnect" />
 
-            <h3>ReliefConnect</h3>
+            <div className="footer-logo-icon">
+              <FaHandsHelping />
+            </div>
+
+            <h3>
+              Relief<span>Connect</span>
+            </h3>
+
           </div>
 
           <p>
@@ -27,44 +39,123 @@ function Footer() {
             government agencies for faster disaster response.
           </p>
 
+
+          {/* SOCIAL LINKS */}
+
           <div className="social-icons">
-            <FaFacebookF />
-            <FaInstagram />
-            <FaLinkedinIn />
-            <FaGithub />
+
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <FaFacebookF />
+            </a>
+
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <FaInstagram />
+            </a>
+
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedinIn />
+            </a>
+
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <FaGithub />
+            </a>
+
           </div>
 
         </div>
 
-        <div>
+
+        {/* =========================
+            QUICK LINKS
+        ========================= */}
+
+        <div className="footer-column">
 
           <h4>Quick Links</h4>
 
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Services</li>
-            <li>Volunteer</li>
-            <li>Donate</li>
+            <li>
+              <a href="/">Home</a>
+            </li>
+
+            <li>
+              <a href="/#about">About</a>
+            </li>
+
+            <li>
+              <a href="/#features">Services</a>
+            </li>
+
+            <li>
+              <a href="/#features">Volunteer</a>
+            </li>
+
+            <li>
+              <a href="/#donation">Donate</a>
+            </li>
           </ul>
 
         </div>
 
-        <div>
+
+        {/* =========================
+            SERVICES
+        ========================= */}
+
+        <div className="footer-column">
 
           <h4>Services</h4>
 
           <ul>
-            <li>Emergency SOS</li>
-            <li>Relief Camps</li>
-            <li>Volunteer Network</li>
-            <li>Disaster Map</li>
-            <li>Donation</li>
+            <li>
+              <a href="/#contact">Emergency SOS</a>
+            </li>
+
+            <li>
+              <a href="/#features">Relief Camps</a>
+            </li>
+
+            <li>
+              <a href="/#features">Volunteer Network</a>
+            </li>
+
+            <li>
+              <a href="/#contact">Disaster Map</a>
+            </li>
+
+            <li>
+              <a href="/#donation">Donation</a>
+            </li>
           </ul>
 
         </div>
 
       </div>
+
+
+      {/* =========================
+          COPYRIGHT
+      ========================= */}
 
       <div className="copyright">
 

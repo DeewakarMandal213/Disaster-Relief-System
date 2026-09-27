@@ -1,0 +1,1065 @@
+/* =========================================================
+   RELIEFCONNECT - NGO PORTAL
+   ========================================================= */
+
+.ngo-page { min-height:100vh; background:#f5f7fa; color:#243447; display:flex; }
+.ngo-sidebar { width:260px; min-height:100vh; background:#0d3b66; color:#fff; position:fixed; inset:0 auto 0 0; z-index:1000; display:flex; flex-direction:column; box-shadow:4px 0 18px rgba(13,59,102,.12); }
+.ngo-sidebar-brand { min-height:82px; padding:18px 20px; display:flex; align-items:center; gap:12px; border-bottom:1px solid rgba(255,255,255,.1); }
+.ngo-brand-icon { width:44px; height:44px; border-radius:12px; background:#e63946; display:flex; align-items:center; justify-content:center; font-size:21px; }
+.ngo-sidebar-brand h2 { margin:0; font-size:18px; }
+.ngo-sidebar-brand span { display:block; margin-top:2px; font-size:11px; color:rgba(255,255,255,.68); text-transform:uppercase; letter-spacing:.8px; }
+.ngo-mobile-close { display:none; margin-left:auto; border:0; background:transparent; color:#fff; font-size:20px; }
+.ngo-user-mini { margin:20px 16px 14px; padding:13px; background:rgba(255,255,255,.08); border-radius:13px; display:flex; align-items:center; gap:11px; }
+.ngo-mini-avatar { width:38px; height:38px; border-radius:50%; background:#fff; color:#0d3b66; display:flex; align-items:center; justify-content:center; }
+.ngo-user-mini strong { display:block; max-width:150px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:13px; }
+.ngo-user-mini span { display:block; margin-top:2px; font-size:11px; color:rgba(255,255,255,.65); }
+.ngo-sidebar-nav { padding:8px 12px; display:flex; flex-direction:column; gap:5px; }
+.ngo-sidebar-nav button { width:100%; min-height:46px; border:0; border-radius:11px; padding:0 14px; background:transparent; color:rgba(255,255,255,.74); display:flex; align-items:center; gap:13px; font-size:13px; cursor:pointer; text-align:left; transition:.2s; }
+.ngo-sidebar-nav button svg { width:17px; flex-shrink:0; }
+.ngo-sidebar-nav button:hover { background:rgba(255,255,255,.08); color:#fff; }
+.ngo-sidebar-nav button.active { background:#e63946; color:#fff; font-weight:600; box-shadow:0 6px 14px rgba(230,57,70,.22); }
+.ngo-sidebar-bottom { margin-top:auto; padding:16px; border-top:1px solid rgba(255,255,255,.1); }
+.ngo-logout-button { width:100%; height:45px; border:1px solid rgba(255,255,255,.13); border-radius:10px; background:rgba(255,255,255,.05); color:rgba(255,255,255,.75); display:flex; align-items:center; gap:12px; padding:0 14px; cursor:pointer; }
+.ngo-main { width:calc(100% - 260px); margin-left:260px; min-height:100vh; }
+.ngo-topbar { height:74px; background:#fff; border-bottom:1px solid #e9edf2; padding:0 32px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:900; }
+.ngo-mobile-menu { display:none; width:40px; height:40px; border:0; border-radius:9px; background:#f2f5f8; color:#0d3b66; font-size:18px; }
+.ngo-topbar-title span { display:block; color:#8895a5; font-size:11px; text-transform:uppercase; letter-spacing:.8px; }
+.ngo-topbar-title strong { display:block; margin-top:2px; color:#0d3b66; font-size:17px; }
+.ngo-top-profile { display:flex; align-items:center; gap:9px; color:#0d3b66; font-size:13px; font-weight:600; }
+.ngo-content { padding:30px 32px 50px; max-width:1500px; margin:auto; }
+.ngo-message { padding:13px 16px; border-radius:11px; margin-bottom:20px; display:flex; gap:10px; align-items:center; font-size:13px; }
+.ngo-message.success { background:#e9f8ef; color:#19713b; border:1px solid #bde8cc; }
+.ngo-message.error { background:#fff0f0; color:#a72a2a; border:1px solid #f2c1c1; }
+.ngo-welcome { background:linear-gradient(120deg,#0d3b66,#164f82); color:#fff; border-radius:20px; padding:28px 30px; display:flex; justify-content:space-between; align-items:center; margin-bottom:22px; overflow:hidden; }
+.ngo-eyebrow,.ngo-panel-kicker,.ngo-section-intro>span { font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; }
+.ngo-eyebrow { color:#ffccbc; }
+.ngo-welcome h1 { margin:7px 0 8px; font-size:30px; letter-spacing:-.8px; }
+.ngo-welcome p { margin:0; color:rgba(255,255,255,.84); max-width:700px; }
+.ngo-welcome-icon { width:78px; height:78px; border-radius:22px; background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; font-size:34px; flex-shrink:0; }
+.ngo-stat-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-bottom:22px; }
+.ngo-stat-card { background:#fff; border:1px solid #e8edf2; border-radius:15px; padding:18px; display:flex; align-items:center; gap:13px; box-shadow:0 5px 18px rgba(20,42,65,.04); }
+.ngo-stat-icon { width:43px; height:43px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.ngo-stat-icon.critical { background:#fff0f0; color:#d9303e; }.ngo-stat-icon.warning{background:#fff7e8;color:#d98500}.ngo-stat-icon.blue{background:#edf5ff;color:#1769aa}.ngo-stat-icon.green{background:#eaf8ef;color:#168246}.ngo-stat-icon.purple{background:#f2efff;color:#7052c7}.ngo-stat-icon.orange{background:#fff2e8;color:#e86b00}
+.ngo-stat-card span { display:block; color:#8b98a7; font-size:11px; }.ngo-stat-card strong{display:block;color:#0d3b66;font-size:23px;margin-top:3px}
+.ngo-dashboard-grid { display:grid; grid-template-columns:1.35fr .85fr; gap:20px; }
+.ngo-panel { background:#fff; border:1px solid #e8edf2; border-radius:16px; padding:22px; box-shadow:0 5px 18px rgba(20,42,65,.035); }
+.ngo-panel-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; gap:10px; }.ngo-panel-header h3{margin:4px 0 0;color:#173b5f;font-size:18px}.ngo-panel-kicker{color:#9aa6b3;font-size:10px}.ngo-panel-header button{border:0;background:transparent;color:#0d5d94;display:flex;align-items:center;gap:4px;cursor:pointer}
+.ngo-request-row { display:flex; align-items:center; gap:12px; padding:13px 0; border-top:1px solid #edf0f3; }.ngo-request-icon{width:36px;height:36px;border-radius:10px;background:#fff1f1;color:#df3c48;display:flex;align-items:center;justify-content:center}.ngo-request-main{flex:1;min-width:0}.ngo-request-main strong{display:block;font-size:13px;color:#253c53}.ngo-request-main span{display:block;margin-top:3px;font-size:11px;color:#8a97a5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ngo-status{display:inline-flex;padding:5px 9px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap;background:#f1f4f7;color:#647384}.ngo-status-pending{background:#fff4dd;color:#ad6a00}.ngo-status-acknowledged{background:#eaf4ff;color:#1769aa}.ngo-status-in-progress{background:#edf5ff;color:#1769aa}.ngo-status-resolved,.ngo-status-fulfilled,.ngo-status-verified{background:#eaf8ef;color:#168246}.ngo-status-recorded{background:#f1f4f7;color:#657484}.ngo-status-used{background:#ececfb;color:#6251a5}
+.ngo-overview-list { display:flex; flex-direction:column; gap:8px; }.ngo-overview-list button{border:0;background:#f7f9fb;border-radius:11px;padding:13px;display:grid;grid-template-columns:24px 1fr 14px;align-items:center;gap:9px;text-align:left;color:#28435d;cursor:pointer}.ngo-overview-list button svg:first-child{color:#e63946}.ngo-mini-summary{display:flex;justify-content:space-between;padding-top:15px;margin-top:15px;border-top:1px solid #edf0f3;color:#8491a0;font-size:12px}.ngo-mini-summary strong{color:#173b5f}
+.ngo-section-stack{display:flex;flex-direction:column;gap:20px}.ngo-section-intro{margin-bottom:2px}.ngo-section-intro>span{color:#e0525e}.ngo-section-intro h1{margin:5px 0 7px;color:#123c62;font-size:28px}.ngo-section-intro p{margin:0;color:#7c8997;font-size:14px}
+.ngo-request-list{display:flex;flex-direction:column;gap:15px}.ngo-large-card,.ngo-relief-card,.ngo-camp-card,.ngo-profile-card{background:#fff;border:1px solid #e6ebf0;border-radius:16px;padding:21px;box-shadow:0 5px 18px rgba(20,42,65,.035)}.ngo-card-topline{display:flex;justify-content:space-between;gap:10px}.ngo-type-label{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:#e0525e;font-weight:800}.ngo-large-card h3{margin:5px 0 0;color:#173b5f}.ngo-request-meta{display:flex;flex-wrap:wrap;gap:15px;margin:14px 0;color:#758494;font-size:11px}.ngo-request-meta span{display:flex;align-items:center;gap:5px}.ngo-description{color:#596a7b;font-size:13px;line-height:1.6;margin:0 0 17px}.ngo-card-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.ngo-card-actions select,.ngo-form-panel select,.ngo-form-panel input,.ngo-form-panel textarea{height:40px;border:1px solid #dfe5ea;border-radius:9px;padding:0 11px;background:#fff;color:#30465b;font:inherit;font-size:12px}.ngo-form-panel textarea{height:auto;padding-top:10px;resize:vertical}.ngo-primary-btn,.ngo-secondary-btn,.ngo-success-btn,.ngo-link-btn,.ngo-small-btn{border:0;border-radius:9px;min-height:40px;padding:0 13px;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:12px;font-weight:600;cursor:pointer}.ngo-primary-btn{background:#e63946;color:#fff}.ngo-secondary-btn{background:#edf5ff;color:#1769aa}.ngo-success-btn{background:#eaf8ef;color:#168246}.ngo-link-btn{background:transparent;color:#1769aa}.ngo-small-btn{background:#edf5ff;color:#1769aa;min-height:32px}.ngo-small-btn.success{background:#eaf8ef;color:#168246}.ngo-primary-btn:disabled,.ngo-secondary-btn:disabled,.ngo-success-btn:disabled,.ngo-small-btn:disabled{opacity:.55;cursor:not-allowed}.wide{width:100%}
+.ngo-relief-grid,.ngo-camp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.ngo-relief-card-head{display:flex;justify-content:space-between;align-items:center}.ngo-relief-card-head>span:first-child{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:#e0525e;font-weight:800}.ngo-relief-card h3{margin:13px 0;color:#173b5f}.ngo-relief-card p,.ngo-camp-card p{display:flex;gap:7px;align-items:center;color:#7c8997;font-size:12px}.ngo-relief-card p svg,.ngo-camp-card p svg{color:#e0525e}.ngo-relief-card .wide{margin-top:10px}
+.ngo-charity-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px}.ngo-form-panel{display:flex;flex-direction:column;gap:8px}.ngo-form-panel label{font-size:11px;font-weight:700;color:#526577;margin-top:5px}.ngo-form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ngo-form-row>div{display:flex;flex-direction:column;gap:8px}.ngo-contribution-list{display:flex;flex-direction:column}.ngo-contribution-row{display:flex;align-items:center;gap:11px;padding:13px 0;border-bottom:1px solid #edf0f3}.ngo-contribution-row:last-child{border-bottom:0}.ngo-contribution-icon{width:36px;height:36px;border-radius:10px;background:#fff0f2;color:#e63946;display:flex;align-items:center;justify-content:center}.ngo-contribution-row>div:nth-child(2){flex:1}.ngo-contribution-row strong{display:block;color:#173b5f;font-size:13px}.ngo-contribution-row span{display:block;color:#8a97a5;font-size:10px;margin-top:3px}
+.ngo-table-wrap{background:#fff;border:1px solid #e6ebf0;border-radius:16px;overflow:auto;box-shadow:0 5px 18px rgba(20,42,65,.035)}.ngo-table{width:100%;border-collapse:collapse;min-width:760px}.ngo-table th{background:#f8fafc;color:#718091;font-size:10px;text-transform:uppercase;letter-spacing:.6px;text-align:left;padding:13px}.ngo-table td{padding:14px 13px;border-top:1px solid #edf0f3;font-size:12px;color:#44586c}.ngo-table td:first-child{font-weight:700;color:#173b5f}
+.ngo-camp-card{position:relative}.ngo-camp-icon{width:42px;height:42px;border-radius:12px;background:#edf5ff;color:#1769aa;display:flex;align-items:center;justify-content:center}.ngo-camp-status{position:absolute;right:20px;top:20px;background:#eaf8ef;color:#168246;padding:5px 9px;border-radius:20px;font-size:10px;font-weight:700}.ngo-camp-card h3{color:#173b5f;margin:13px 0 8px}.ngo-capacity{margin-top:17px}.ngo-capacity>div:first-child{display:flex;justify-content:space-between;font-size:11px;color:#7b8997}.ngo-capacity strong{color:#173b5f}.ngo-capacity-bar{height:7px;background:#edf0f3;border-radius:20px;margin-top:7px;overflow:hidden}.ngo-capacity-bar span{display:block;height:100%;background:#e63946;border-radius:20px}.ngo-facilities{line-height:1.5}
+.ngo-profile-card{display:flex;gap:24px;align-items:flex-start}.ngo-profile-avatar{width:76px;height:76px;border-radius:20px;background:#0d3b66;color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0}.ngo-profile-details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;flex:1}.ngo-profile-details span{display:block;color:#8b98a7;font-size:10px;text-transform:uppercase;letter-spacing:.5px}.ngo-profile-details strong{display:block;color:#173b5f;font-size:13px;margin-top:4px;word-break:break-word}
+.ngo-empty{min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#a1acb7;text-align:center;gap:9px}.ngo-empty svg{font-size:28px}.ngo-empty p{margin:0;font-size:12px}
+.ngo-loading-page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f7fa;color:#0d3b66;gap:12px}.ngo-loader{width:38px;height:38px;border:4px solid #dce5ee;border-top-color:#e63946;border-radius:50%;animation:ngoSpin .8s linear infinite}@keyframes ngoSpin{to{transform:rotate(360deg)}}
+.ngo-sidebar-overlay{display:none}
+
+@media (max-width: 1100px){.ngo-stat-grid{grid-template-columns:repeat(2,1fr)}.ngo-dashboard-grid,.ngo-charity-grid{grid-template-columns:1fr}.ngo-content{padding:25px}.ngo-topbar{padding:0 25px}}
+@media (max-width: 800px){.ngo-sidebar{transform:translateX(-100%);transition:transform .25s ease}.ngo-sidebar.open{transform:translateX(0)}.ngo-sidebar-overlay{display:block;position:fixed;inset:0;background:rgba(4,23,39,.45);border:0;z-index:950}.ngo-mobile-close{display:block}.ngo-main{width:100%;margin-left:0}.ngo-mobile-menu{display:flex;align-items:center;justify-content:center}.ngo-topbar{gap:12px}.ngo-topbar-title{flex:1}.ngo-top-profile span{display:none}.ngo-relief-grid,.ngo-profile-details{grid-template-columns:1fr}}
+@media (max-width: 560px){.ngo-content{padding:18px 15px 35px}.ngo-topbar{height:66px;padding:0 15px}.ngo-stat-grid{grid-template-columns:1fr}.ngo-welcome{padding:22px}.ngo-welcome h1{font-size:24px}.ngo-welcome-icon{display:none}.ngo-card-actions{align-items:stretch}.ngo-card-actions>*{width:100%}.ngo-form-row{grid-template-columns:1fr}.ngo-profile-card{flex-direction:column}.ngo-profile-avatar{width:62px;height:62px}.ngo-profile-details{width:100%}}
+/* NGO request status/action-area polish. Add at the END of NGO.css. */
+.ngo-large-card .ngo-card-topline {
+  align-items: flex-start;
+}
+
+.ngo-large-card .ngo-card-topline > .ngo-status {
+  flex: 0 0 auto;
+  min-width: 96px;
+  min-height: 34px;
+  padding: 7px 13px;
+  border: 1px solid rgba(23, 59, 95, 0.08);
+  box-shadow: 0 2px 8px rgba(20, 42, 65, 0.05);
+  justify-content: center;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  border-radius: 999px;
+  box-sizing: border-box;
+}
+
+.ngo-status-pending {
+  background: #fff4dd;
+  color: #a96300;
+  border-color: #f6dfaa !important;
+}
+
+.ngo-status-acknowledged {
+  background: #eaf4ff;
+  color: #1769aa;
+  border-color: #cfe6fb !important;
+}
+
+.ngo-status-in-progress {
+  background: #edf5ff;
+  color: #155f9d;
+  border-color: #d2e6fa !important;
+}
+
+.ngo-status-resolved,
+.ngo-status-fulfilled {
+  background: #eaf8ef;
+  color: #168246;
+  border-color: #cdebd8 !important;
+}
+
+.ngo-status-rejected {
+  background: #fff0f0;
+  color: #c62e3b;
+  border-color: #f4cccc !important;
+}
+
+.ngo-card-actions {
+  margin-top: 8px;
+  padding: 11px 12px;
+  border: 1px solid #edf0f3;
+  border-radius: 12px;
+  background: #fafbfc;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.ngo-card-actions select {
+  min-width: 190px;
+}
+
+.ngo-card-actions .ngo-link-btn {
+  min-height: 40px;
+  padding: 0 13px;
+  border: 1px solid #dbe5ed;
+  border-radius: 9px;
+  background: #fff;
+}
+
+.ngo-card-actions .ngo-link-btn:hover {
+  background: #f2f7fb;
+}
+
+.ngo-assigned-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 12px;
+  padding: 8px 11px;
+  border-radius: 9px;
+  background: #f3f7fb;
+  color: #718293;
+  font-size: 11px;
+}
+
+.ngo-assigned-note strong {
+  color: #1769aa;
+}
+
+@media (max-width: 700px) {
+  .ngo-large-card .ngo-card-topline > .ngo-status {
+    min-width: auto;
+  }
+
+  .ngo-card-actions {
+    padding: 10px;
+  }
+
+  .ngo-card-actions select {
+    min-width: 0;
+    width: 100%;
+  }
+}
+/* NGO Help Requests: keep the status badge compact instead of stretching it
+   to the full height of the card header. */
+.ngo-card-topline {
+  align-items: flex-start;
+}
+
+.ngo-card-topline > .ngo-status {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  width: fit-content;
+  min-width: 0;
+  height: auto;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 7px 12px;
+  line-height: 1.2;
+}
+
+/* =========================================================
+   NGO RESPONSE MAP
+   ========================================================= */
+
+.ngo-response-map-page {
+  width: 100%;
+}
+
+.ngo-map-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.ngo-map-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ngo-map-toolbar-btn {
+  border: 1px solid #dbe4ec;
+  border-radius: 9px;
+  padding: 10px 14px;
+  background: #ffffff;
+  color: #173b5f;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ngo-map-toolbar-btn:hover {
+  background: #f5f8fb;
+}
+
+.ngo-map-toolbar-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ngo-map-count-pill {
+  padding: 8px 11px;
+  border-radius: 999px;
+  background: #eef6ff;
+  color: #1d5d91;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.ngo-map-error {
+  margin-bottom: 16px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  background: #fff1f1;
+  border: 1px solid #f4cccc;
+  color: #b4232d;
+  font-size: 12px;
+}
+
+.ngo-map-heading {
+  margin-bottom: 18px;
+}
+
+.ngo-map-heading > span {
+  color: #ff7100;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.ngo-map-heading h1 {
+  margin: 5px 0 6px;
+  color: #173b5f;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.ngo-map-heading p {
+  max-width: 850px;
+  margin: 0;
+  color: #718096;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.ngo-response-map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 370px;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.ngo-response-map-container {
+  height: 650px;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e5eaf0;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 7px 24px rgba(17, 44, 72, 0.06);
+}
+
+.ngo-response-map-container .leaflet-container {
+  z-index: 1;
+}
+
+.ngo-response-map-panel {
+  min-width: 0;
+  height: 650px;
+  overflow-y: auto;
+  padding: 18px;
+  border: 1px solid #e5eaf0;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 7px 24px rgba(17, 44, 72, 0.06);
+  box-sizing: border-box;
+}
+
+.ngo-map-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #edf1f5;
+}
+
+.ngo-map-panel-header span {
+  display: block;
+  color: #8a98a8;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.ngo-map-panel-header h2 {
+  margin: 4px 0 0;
+  color: #173b5f;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.ngo-map-panel-header > svg {
+  color: #ff7100;
+  font-size: 20px;
+}
+
+.ngo-map-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.ngo-map-stat-grid > div {
+  min-width: 0;
+  padding: 10px 7px;
+  border: 1px solid #edf0f4;
+  border-radius: 10px;
+  background: #fafbfc;
+  text-align: center;
+}
+
+.ngo-map-stat-grid svg {
+  display: block;
+  margin: 0 auto 5px;
+  color: #ff7100;
+  font-size: 13px;
+}
+
+.ngo-map-stat-grid strong {
+  display: block;
+  color: #173b5f;
+  font-size: 17px;
+}
+
+.ngo-map-stat-grid span {
+  display: block;
+  margin-top: 2px;
+  color: #8491a0;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.ngo-map-location-list {
+  padding-top: 4px;
+}
+
+.ngo-map-list-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+}
+
+.ngo-map-list-heading strong {
+  color: #173b5f;
+  font-size: 13px;
+}
+
+.ngo-map-list-heading span {
+  min-width: 25px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #5d6b79;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.ngo-map-camp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 11px 0;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.ngo-map-camp-icon {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef4ff;
+  color: #4f65b6;
+  font-size: 12px;
+}
+
+.ngo-map-camp-item > div:last-child {
+  min-width: 0;
+}
+
+.ngo-map-camp-item strong,
+.ngo-map-camp-item span,
+.ngo-map-camp-item small,
+.ngo-map-camp-item em {
+  display: block;
+}
+
+.ngo-map-camp-item strong {
+  color: #173b5f;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.ngo-map-camp-item span {
+  margin-top: 3px;
+  color: #7a8795;
+  font-size: 9px;
+  line-height: 1.35;
+}
+
+.ngo-map-camp-item small {
+  margin-top: 4px;
+  color: #5f6e7c;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.ngo-map-camp-item em {
+  margin-top: 3px;
+  color: #a0aab5;
+  font-size: 8px;
+  font-style: normal;
+}
+
+.ngo-map-no-items {
+  padding: 15px 0;
+  color: #8793a0;
+  font-size: 11px;
+}
+
+.ngo-map-note {
+  margin-top: 14px;
+  padding: 10px 11px;
+  border-radius: 9px;
+  background: #f7fafc;
+  color: #738191;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.ngo-map-note svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: #5d7da1;
+}
+
+.ngo-map-note.camp-note {
+  background: #fbf9ff;
+}
+
+.ngo-map-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 7px;
+  color: #1769aa;
+  font-size: 10px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.ngo-map-directions:hover {
+  text-decoration: underline;
+}
+
+.ngo-map-empty {
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5eaf0;
+  border-radius: 18px;
+  background: #ffffff;
+  color: #718096;
+  font-size: 13px;
+}
+
+@media (max-width: 1050px) {
+  .ngo-response-map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ngo-response-map-container,
+  .ngo-response-map-panel {
+    height: 560px;
+  }
+}
+
+@media (max-width: 650px) {
+  .ngo-map-toolbar,
+  .ngo-map-toolbar-left {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ngo-map-toolbar-btn {
+    justify-content: center;
+  }
+
+  .ngo-map-count-pill {
+    text-align: center;
+  }
+
+  .ngo-map-heading h1 {
+    font-size: 25px;
+  }
+
+  .ngo-response-map-container {
+    height: 450px;
+  }
+
+  .ngo-response-map-panel {
+    height: auto;
+    max-height: none;
+  }
+}
+
+/* =========================================================
+   NGO PROFILE EDIT / PASSWORD
+========================================================= */
+.ngo-profile-card-enhanced {
+  position: relative;
+  padding-bottom: 92px;
+}
+
+.ngo-profile-actions {
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ngo-profile-actions button,
+.ngo-profile-form-actions button {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ngo-profile-edit-btn {
+  background: #ef3340;
+  color: #fff;
+}
+
+.ngo-profile-password-btn,
+.ngo-profile-password-save-btn {
+  background: #123f6b;
+  color: #fff;
+}
+
+.ngo-profile-editor-card {
+  background: #fff;
+  border: 1px solid #e3e8ef;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 8px 28px rgba(15, 38, 65, 0.06);
+}
+
+.ngo-profile-editor-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.ngo-profile-editor-heading span {
+  color: #ef3340;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.ngo-profile-editor-heading h2 {
+  margin: 6px 0 0;
+  color: #123f6b;
+}
+
+.ngo-profile-editor-heading > svg {
+  font-size: 28px;
+  color: #ef3340;
+}
+
+.ngo-profile-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.ngo-profile-form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.ngo-profile-form-grid input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d8e0ea;
+  border-radius: 10px;
+  padding: 12px 13px;
+  font: inherit;
+  color: #17395f;
+  background: #fff;
+}
+
+.ngo-profile-form-grid input:focus {
+  outline: none;
+  border-color: #ef3340;
+  box-shadow: 0 0 0 3px rgba(239, 51, 64, 0.1);
+}
+
+.ngo-profile-form-grid input:disabled {
+  background: #f5f7fa;
+  color: #64748b;
+}
+
+.ngo-profile-form-grid small {
+  color: #7b8797;
+  font-weight: 500;
+}
+
+.ngo-profile-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.ngo-profile-cancel-btn {
+  background: #eef2f6;
+  color: #334155;
+}
+
+.ngo-profile-save-btn {
+  background: #ef3340;
+  color: #fff;
+}
+
+.ngo-profile-message {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.ngo-profile-message.success {
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+.ngo-profile-message.error {
+  background: #fff1f2;
+  color: #dc2626;
+}
+
+.ngo-password-security-note {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: #f5f8fc;
+  border-radius: 12px;
+  padding: 13px 15px;
+  margin-bottom: 22px;
+  color: #51657d;
+}
+
+.ngo-password-security-note svg {
+  color: #123f6b;
+  flex: 0 0 auto;
+}
+
+.ngo-password-security-note p {
+  margin: 0;
+}
+
+.ngo-password-input-wrap {
+  position: relative;
+}
+
+.ngo-password-input-wrap input {
+  padding-right: 44px;
+}
+
+.ngo-password-input-wrap button {
+  position: absolute;
+  right: 9px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  padding: 6px;
+}
+
+@media (max-width: 760px) {
+  .ngo-profile-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ngo-profile-card-enhanced {
+    padding-bottom: 150px;
+  }
+
+  .ngo-profile-actions {
+    left: 28px;
+    right: 28px;
+    justify-content: flex-start;
+  }
+}
+
+/* =========================================================
+   NGO RELIEF CAMP MANAGEMENT
+========================================================= */
+.ngo-camps-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 4px 0 22px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+}
+
+.ngo-camps-toolbar > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ngo-camps-toolbar strong {
+  color: #17395f;
+  font-size: 16px;
+}
+
+.ngo-camps-toolbar span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.ngo-create-camp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 16px;
+  background: #ef3340;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(239, 51, 64, 0.18);
+}
+
+.ngo-create-camp-btn:hover { filter: brightness(0.96); }
+.ngo-create-camp-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.ngo-camp-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ngo-camp-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #ecfdf3;
+  color: #15803d;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.ngo-camp-status.full { background: #fef2f2; color: #dc2626; }
+.ngo-camp-status.limited-capacity { background: #fff7ed; color: #c2410c; }
+.ngo-camp-status.closed { background: #f1f5f9; color: #64748b; }
+
+.ngo-camp-owner-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 13px;
+  border-top: 1px solid #eef2f7;
+}
+
+.ngo-camp-owner-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.ngo-camp-owner-badge.other {
+  background: #f8fafc;
+  color: #64748b;
+}
+
+.ngo-camp-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.ngo-camp-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #dbe3ee;
+  border-radius: 8px;
+  padding: 7px 10px;
+  background: #fff;
+  color: #17395f;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.ngo-camp-actions button:hover { background: #f8fafc; }
+.ngo-camp-actions button.danger { color: #dc2626; border-color: #fecaca; }
+.ngo-camp-actions button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.ngo-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.58);
+}
+
+.ngo-camp-modal {
+  width: min(760px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.25);
+}
+
+.ngo-camp-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 26px 18px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.ngo-camp-modal-header span {
+  color: #ef3340;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+.ngo-camp-modal-header h2 {
+  margin: 5px 0 0;
+  color: #17395f;
+  font-size: 24px;
+}
+
+.ngo-modal-close {
+  border: 0;
+  background: #f8fafc;
+  color: #64748b;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.ngo-camp-modal form { padding: 22px 26px 26px; }
+
+.ngo-camp-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.ngo-camp-form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ngo-camp-form-grid label.full { grid-column: 1 / -1; }
+.ngo-camp-form-grid label span { color: #94a3b8; font-weight: 600; }
+
+.ngo-camp-form-grid input,
+.ngo-camp-form-grid select,
+.ngo-camp-form-grid textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dbe3ee;
+  border-radius: 10px;
+  padding: 11px 12px;
+  background: #fff;
+  color: #17395f;
+  font: inherit;
+  font-weight: 500;
+  outline: none;
+}
+
+.ngo-camp-form-grid input:focus,
+.ngo-camp-form-grid select:focus,
+.ngo-camp-form-grid textarea:focus {
+  border-color: #ef3340;
+  box-shadow: 0 0 0 3px rgba(239, 51, 64, 0.08);
+}
+
+.ngo-camp-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+@media (max-width: 720px) {
+  .ngo-camps-toolbar { align-items: stretch; flex-direction: column; }
+  .ngo-create-camp-btn { width: 100%; }
+  .ngo-camp-form-grid { grid-template-columns: 1fr; }
+  .ngo-camp-form-grid label.full { grid-column: auto; }
+  .ngo-camp-owner-row { align-items: flex-start; flex-direction: column; }
+  .ngo-modal-backdrop { padding: 10px; }
+  .ngo-camp-modal-header, .ngo-camp-modal form { padding-left: 18px; padding-right: 18px; }
+}
+
+/* NGO camp map location picker */
+.ngo-camp-location-picker {
+  margin: 0 26px 22px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #f8fafc;
+  overflow: hidden;
+}
+.ngo-camp-location-picker-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+.ngo-camp-location-picker-head strong {
+  display: block;
+  color: #172033;
+  font-size: 11px;
+}
+.ngo-camp-location-picker-head span {
+  display: block;
+  margin-top: 4px;
+  color: #94a3b8;
+  font-size: 9px;
+}
+.ngo-map-location-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 11px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.ngo-map-location-btn:hover { background: #dbeafe; }
+.ngo-camp-picker-map {
+  height: 300px;
+}
+.ngo-camp-picker-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+.ngo-camp-coordinates {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  color: #64748b;
+  font-size: 9px;
+}
+.ngo-camp-coordinates strong { color: #334155; }
+@media (max-width: 700px) {
+  .ngo-camp-location-picker { margin-left: 18px; margin-right: 18px; }
+  .ngo-camp-location-picker-head { align-items: flex-start; flex-direction: column; }
+  .ngo-camp-picker-map { height: 260px; }
+}

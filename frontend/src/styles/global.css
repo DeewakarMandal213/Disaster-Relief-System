@@ -1,3 +1,13 @@
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  min-height: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,48 +15,105 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+
   font-family: Arial, Helvetica, sans-serif;
+
   background-color: #f8f9fa;
+  color: #173b67;
+
+  overflow-x: hidden;
 }
 
-.hero-section{
-    background:#f8f9fa;
-    padding:80px 0;
+/* React root should occupy the complete viewport */
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 
-.hero-title{
-    font-size:3rem;
-    font-weight:700;
-    color:#0D3B66;
-    line-height:1.2;
+/* Sections should not create unwanted spacing */
+section {
+  scroll-margin-top: 90px;
 }
 
-.hero-text{
-    margin-top:20px;
-    font-size:1.15rem;
-    color:#555;
-    line-height:1.8;
+/* =========================================================
+   COMMON HERO SECTION
+   Used by the Home/Public pages
+   ========================================================= */
+
+.hero-section {
+  width: 100%;
+  background: #f8f9fa;
+  padding: 80px 0;
 }
 
-.hero-section img{
-    max-height:450px;
-    object-fit:cover;
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0d3b66;
+  line-height: 1.2;
 }
 
-@media(max-width:992px){
-
-.hero-title{
-    font-size:2.2rem;
-    text-align:center;
+.hero-text {
+  margin-top: 20px;
+  font-size: 1.15rem;
+  color: #555;
+  line-height: 1.8;
 }
 
-.hero-text{
-    text-align:center;
+.hero-section img {
+  max-height: 450px;
+  width: 100%;
+  object-fit: cover;
 }
 
-.hero-section .btn{
-    width:100%;
-    margin-bottom:15px;
+/* =========================================================
+   RESPONSIVE TABLET
+   ========================================================= */
+
+@media (max-width: 992px) {
+  .hero-section {
+    padding: 60px 20px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-section .btn {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 }
 
+/* =========================================================
+   RESPONSIVE MOBILE
+   ========================================================= */
+
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 45px 16px;
+  }
+
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .hero-section img {
+    max-height: 320px;
+  }
 }

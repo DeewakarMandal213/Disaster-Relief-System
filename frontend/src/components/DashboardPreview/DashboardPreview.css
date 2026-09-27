@@ -1,118 +1,539 @@
-.dashboard-preview{
+/* =========================================================
+   RELIEFCONNECT - DASHBOARD PREVIEW
+   Full Screen Hero Style
+   ========================================================= */
 
-padding:100px 0;
 
-background:#f8fafc;
+/* =========================================================
+   MAIN SECTION
+   ========================================================= */
+
+.dashboard-preview {
+  width: 100%;
+  height: calc(100vh - 108px);
+  min-height: 650px;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  background: #061f3b;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.dashboard-container {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+
+  padding: 0 5%;
+
+  box-sizing: border-box;
+
+  display: grid;
+
+  grid-template-columns: 43% 57%;
+
+  align-items: center;
+
+  gap: 0;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+   ========================================================= */
+
+.dashboard-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  max-width: 700px;
+
+  padding-right: 30px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SECTION TAG
+   ========================================================= */
+
+.dashboard-content .section-tag {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 24px;
+
+  margin-bottom: 18px;
+
+  background: #f4f8ff;
+
+  color: #174f87;
+
+  border-radius: 40px;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.dashboard-content h2 {
+  margin: 0 0 22px;
+
+  color: #ffffff;
+
+  font-size: clamp(42px, 4vw, 62px);
+
+  line-height: 1.02;
+
+  font-weight: 850;
+
+  letter-spacing: -1.5px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.dashboard-content p {
+  max-width: 680px;
+
+  margin: 0 0 30px;
+
+  color: rgba(255, 255, 255, 0.90);
+
+  font-size: 17px;
+
+  line-height: 1.65;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.dashboard-content .primary-btn {
+  height: 52px;
+
+  padding: 0 28px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  border-radius: 28px;
+
+  background: #ff7100;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 10px 28px rgba(255, 113, 0, 0.28);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.dashboard-content .primary-btn:hover {
+  background: #ff7d18;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 32px rgba(255, 113, 0, 0.35);
+}
+
+
+/* =========================================================
+   DASHBOARD BROWSER
+   ========================================================= */
+
+.dashboard-browser {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 900px;
+
+  justify-self: end;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.30);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BROWSER TOP BAR
+   ========================================================= */
+
+.browser-top {
+  width: 100%;
+
+  height: 48px;
+
+  background: #eeeeee;
+
+  display: flex;
+
+  align-items: center;
+
+  padding-left: 18px;
+
+  gap: 8px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BROWSER DOTS
+   ========================================================= */
+
+.dot {
+  width: 13px;
+
+  height: 13px;
+
+  border-radius: 50%;
+
+  display: block;
+}
+
+
+.red {
+  background: #ff5f57;
+}
+
+
+.yellow {
+  background: #ffbd2e;
+}
+
+
+.green {
+  background: #28c840;
+}
+
+
+/* =========================================================
+   DASHBOARD IMAGE
+   ========================================================= */
+
+.dashboard-browser img {
+  width: 100%;
+
+  height: auto;
+
+  max-height: 62vh;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  .dashboard-container {
+    padding: 0 4%;
+  }
+
+  .dashboard-content {
+    padding-left: 1%;
+    padding-right: 35px;
+  }
+
+  .dashboard-content h2 {
+    font-size: 58px;
+  }
+
+  .dashboard-content p {
+    font-size: 17px;
+    max-width: 690px;
+  }
+
+  .dashboard-browser {
+    width: 100%;
+    max-width: 900px;
+  }
 
 }
 
-.dashboard-container{
 
-width:90%;
-max-width:1400px;
+/* =========================================================
+   SHORT LAPTOP SCREEN
+   ========================================================= */
 
-margin:auto;
+@media (min-width: 993px) and (max-height: 800px) {
 
-display:grid;
+  .dashboard-preview {
+    height: calc(100vh - 100px);
 
-grid-template-columns:1fr 1fr;
+    min-height: 600px;
+  }
 
-gap:70px;
 
-align-items:center;
+  .dashboard-content h2 {
+    font-size: 48px;
 
-}
+    line-height: 1.02;
 
-.dashboard-content h2{
+    margin-bottom: 18px;
+  }
 
-font-size:48px;
 
-margin:20px 0;
+  .dashboard-content p {
+    font-size: 15px;
 
-color:#173F6D;
+    line-height: 1.5;
 
-}
+    margin-bottom: 22px;
 
-.dashboard-content p{
+    max-width: 650px;
+  }
 
-line-height:1.8;
 
-margin-bottom:35px;
+  .dashboard-content .section-tag {
+    padding: 9px 20px;
 
-color:#666;
+    font-size: 14px;
 
-}
+    margin-bottom: 14px;
+  }
 
-.dashboard-browser{
 
-background:white;
+  .dashboard-browser {
+    max-width: 850px;
+  }
 
-border-radius:18px;
 
-overflow:hidden;
+  .browser-top {
+    height: 42px;
+  }
 
-box-shadow:0 20px 45px rgba(0,0,0,.15);
 
-}
-
-.browser-top{
-
-height:45px;
-
-background:#ececec;
-
-display:flex;
-
-align-items:center;
-
-padding-left:18px;
-
-gap:8px;
+  .dashboard-browser img {
+    max-height: 59vh;
+  }
 
 }
 
-.dot{
 
-width:12px;
+/* =========================================================
+   TABLET
+   ========================================================= */
 
-height:12px;
+@media (max-width: 992px) {
 
-border-radius:50%;
+  .dashboard-preview {
+    height: auto;
+
+    min-height: 100vh;
+
+    padding: 70px 0;
+  }
+
+
+  .dashboard-container {
+    width: 100%;
+
+    height: auto;
+
+    padding: 0 6%;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+
+    align-items: center;
+  }
+
+
+  .dashboard-content {
+    max-width: 850px;
+
+    padding: 0;
+  }
+
+
+  .dashboard-content h2 {
+    font-size: 44px;
+  }
+
+
+  .dashboard-content p {
+    max-width: 750px;
+
+    font-size: 16px;
+  }
+
+
+  .dashboard-browser {
+    width: 100%;
+
+    max-width: 900px;
+
+    justify-self: center;
+  }
+
+
+  .dashboard-browser img {
+    max-height: none;
+  }
 
 }
 
-.red{
-background:#ff5f57;
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .dashboard-preview {
+    min-height: 100vh;
+
+    padding: 55px 0 60px;
+  }
+
+
+  .dashboard-container {
+    padding: 0 20px;
+
+    gap: 35px;
+  }
+
+
+  .dashboard-content .section-tag {
+    padding: 9px 18px;
+
+    font-size: 13px;
+  }
+
+
+  .dashboard-content h2 {
+    font-size: 36px;
+
+    line-height: 1.04;
+
+    letter-spacing: -0.8px;
+  }
+
+
+  .dashboard-content p {
+    font-size: 15px;
+
+    line-height: 1.55;
+
+    margin-bottom: 25px;
+  }
+
+
+  .dashboard-content .primary-btn {
+    height: 48px;
+
+    padding: 0 23px;
+  }
+
+
+  .dashboard-browser {
+    border-radius: 15px;
+  }
+
+
+  .browser-top {
+    height: 38px;
+
+    padding-left: 14px;
+  }
+
+
+  .dot {
+    width: 11px;
+
+    height: 11px;
+  }
+
 }
 
-.yellow{
-background:#ffbd2e;
-}
 
-.green{
-background:#28c840;
-}
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
 
-.dashboard-browser img{
+@media (max-width: 400px) {
 
-width:100%;
+  .dashboard-content h2 {
+    font-size: 31px;
+  }
 
-display:block;
 
-}
+  .dashboard-content p {
+    font-size: 14px;
+  }
 
-@media(max-width:992px){
 
-.dashboard-container{
-
-grid-template-columns:1fr;
-
-}
-
-.dashboard-content h2{
-
-font-size:36px;
-
-}
+  .dashboard-container {
+    padding: 0 16px;
+  }
 
 }

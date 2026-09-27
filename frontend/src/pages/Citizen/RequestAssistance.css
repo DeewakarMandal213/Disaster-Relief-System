@@ -1,0 +1,729 @@
+/* =========================================================
+   RELIEFCONNECT
+   REQUEST ASSISTANCE
+   ========================================================= */
+
+.request-assistance-page {
+  min-height: 100vh;
+
+  background: #f4f7fb;
+
+  color: #102e52;
+
+  padding: 28px 45px 50px;
+
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.request-assistance-header {
+  margin-bottom: 24px;
+}
+
+
+.back-button {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 24px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #102e52;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.back-button:hover {
+  color: #ff7100;
+}
+
+
+.assistance-page-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+.assistance-title-icon {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #fff0e6;
+
+  color: #ff7100;
+
+  font-size: 20px;
+}
+
+
+.assistance-page-title p {
+  margin: 0 0 4px;
+
+  color: #ff7100;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+
+.assistance-page-title h1 {
+  margin: 0;
+
+  color: #102e52;
+
+  font-size: 30px;
+
+  font-weight: 850;
+}
+
+
+/* =========================================================
+   INFORMATION
+   ========================================================= */
+
+.assistance-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 17px 20px;
+
+  margin-bottom: 25px;
+
+  background: #eef6ff;
+
+  border: 1px solid #d6e8fb;
+
+  border-radius: 12px;
+}
+
+
+.assistance-info > svg {
+  color: #2767b1;
+
+  font-size: 21px;
+
+  flex-shrink: 0;
+}
+
+
+.assistance-info strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #102e52;
+
+  font-size: 14px;
+}
+
+
+.assistance-info p {
+  margin: 0;
+
+  color: #667085;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.assistance-form-card {
+  max-width: 950px;
+
+  margin: 0 auto;
+
+  padding: 28px;
+
+  background: white;
+
+  border: 1px solid #e7ebef;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 5px 20px rgba(16, 46, 82, 0.05);
+}
+
+
+.form-section {
+  margin-bottom: 28px;
+}
+
+
+.form-section h2 {
+  margin: 0 0 5px;
+
+  color: #102e52;
+
+  font-size: 16px;
+
+  font-weight: 850;
+}
+
+
+.form-section > p {
+  margin: 0 0 15px;
+
+  color: #777;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   ASSISTANCE TYPES
+   ========================================================= */
+
+.assistance-types {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 12px;
+}
+
+
+.assistance-type-card {
+  min-height: 105px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 1px solid #e2e7ec;
+
+  border-radius: 11px;
+
+  background: white;
+
+  color: #102e52;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+
+  font-family: inherit;
+}
+
+
+.assistance-type-card:hover {
+  border-color: #ff7100;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 18px rgba(16, 46, 82, 0.07);
+}
+
+
+.assistance-type-card.selected {
+  border: 2px solid #ff7100;
+
+  background: #fff7f1;
+
+  color: #ff7100;
+}
+
+
+.assistance-type-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #f1f5f9;
+
+  color: #ff7100;
+
+  font-size: 16px;
+}
+
+
+.assistance-type-card.selected
+.assistance-type-icon {
+  background: #ff7100;
+
+  color: white;
+}
+
+
+.assistance-type-card strong {
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   PRIORITY
+   ========================================================= */
+
+.priority-options {
+  display: flex;
+
+  gap: 10px;
+}
+
+
+.priority-btn {
+  min-width: 95px;
+
+  padding: 10px 16px;
+
+  border: 1px solid #dfe4e9;
+
+  border-radius: 8px;
+
+  background: white;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.priority-btn.low {
+  color: #168348;
+}
+
+
+.priority-btn.medium {
+  color: #a56a00;
+}
+
+
+.priority-btn.high {
+  color: #d86b00;
+}
+
+
+.priority-btn.critical {
+  color: #d92d20;
+}
+
+
+.priority-btn.active {
+  color: white;
+}
+
+
+.priority-btn.active.low {
+  background: #168348;
+
+  border-color: #168348;
+}
+
+
+.priority-btn.active.medium {
+  background: #d99400;
+
+  border-color: #d99400;
+}
+
+
+.priority-btn.active.high {
+  background: #e36d00;
+
+  border-color: #e36d00;
+}
+
+
+.priority-btn.active.critical {
+  background: #d92d20;
+
+  border-color: #d92d20;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.input-group {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 0 13px;
+
+  height: 46px;
+
+  border: 1px solid #dfe4e9;
+
+  border-radius: 9px;
+
+  background: white;
+
+  transition: 0.2s ease;
+}
+
+
+.input-group:focus-within {
+  border-color: #ff7100;
+
+  box-shadow:
+    0 0 0 3px rgba(255, 113, 0, 0.08);
+}
+
+
+.input-group svg {
+  color: #ff7100;
+
+  font-size: 14px;
+}
+
+
+.input-group input {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #102e52;
+
+  font-family: inherit;
+
+  font-size: 12px;
+}
+
+
+.input-group input::placeholder {
+  color: #a0a6ad;
+}
+
+
+/* =========================================================
+   TEXTAREA
+   ========================================================= */
+
+.form-section textarea {
+  width: 100%;
+
+  min-height: 120px;
+
+  padding: 13px;
+
+  resize: vertical;
+
+  border: 1px solid #dfe4e9;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  color: #102e52;
+
+  background: white;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+.form-section textarea:focus {
+  border-color: #ff7100;
+
+  box-shadow:
+    0 0 0 3px rgba(255, 113, 0, 0.08);
+}
+
+
+.form-section textarea::placeholder {
+  color: #a0a6ad;
+}
+
+
+/* =========================================================
+   SUBMIT
+   ========================================================= */
+
+.submit-assistance-btn {
+  width: 100%;
+
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #ff7100;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+
+  box-shadow:
+    0 7px 18px rgba(255, 113, 0, 0.18);
+}
+
+
+.submit-assistance-btn:hover {
+  background: #e96500;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .request-assistance-page {
+    padding: 25px;
+  }
+
+
+  .assistance-types {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .request-assistance-page {
+    padding: 18px;
+  }
+
+
+  .assistance-page-title h1 {
+    font-size: 24px;
+  }
+
+
+  .assistance-form-card {
+    padding: 20px;
+  }
+
+
+  .assistance-types {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .priority-options {
+    flex-wrap: wrap;
+  }
+
+
+  .priority-btn {
+    flex: 1;
+  }
+
+}
+/* =========================================================
+   MAP LOCATION PICKER
+========================================================= */
+
+.assistance-location-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.assistance-location-picker-header h2 {
+  margin-bottom: 5px;
+}
+
+.assistance-location-picker-header p {
+  margin-bottom: 0;
+}
+
+.assistance-current-location-btn {
+  border: none;
+  border-radius: 9px;
+  background: #102e52;
+  color: white;
+  padding: 10px 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.assistance-current-location-btn:hover {
+  background: #173f6d;
+}
+
+.assistance-current-location-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.assistance-map-picker {
+  width: 100%;
+  height: 330px;
+  overflow: hidden;
+  border: 1px solid #dfe4e9;
+  border-radius: 12px;
+  background: #eef2f7;
+}
+
+.assistance-location-map {
+  width: 100%;
+  height: 100%;
+}
+
+.assistance-location-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+.assistance-location-selected {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 12px 14px;
+  border: 1px solid #e2e7ec;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.assistance-location-selected > svg {
+  color: #ff7100;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.assistance-location-selected strong,
+.assistance-location-selected span,
+.assistance-location-selected small {
+  display: block;
+}
+
+.assistance-location-selected strong {
+  color: #102e52;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.assistance-location-selected span {
+  margin-top: 3px;
+  color: #667085;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.assistance-location-selected small {
+  margin-top: 4px;
+  color: #475467;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.assistance-location-selected.success {
+  border-color: #b7ebca;
+  background: #f0fdf4;
+}
+
+.assistance-location-selected.success > svg {
+  color: #16a34a;
+}
+
+@media (max-width: 700px) {
+  .assistance-location-picker-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .assistance-current-location-btn {
+    width: 100%;
+  }
+
+  .assistance-map-picker {
+    height: 280px;
+  }
+}

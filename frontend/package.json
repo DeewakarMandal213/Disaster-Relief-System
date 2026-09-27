@@ -13,6 +13,7 @@
     "axios": "^1.18.1",
     "bootstrap": "^5.3.8",
     "chart.js": "^4.5.1",
+    "framer-motion": "^12.43.0",
     "leaflet": "^1.9.4",
     "react": "^19.2.7",
     "react-bootstrap": "^2.10.10",

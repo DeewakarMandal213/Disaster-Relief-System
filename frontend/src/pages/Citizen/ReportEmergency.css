@@ -1,0 +1,880 @@
+/* =========================================================
+   REPORT EMERGENCY PAGE
+   ========================================================= */
+
+.report-emergency-page {
+  min-height: 100vh;
+  padding: 35px;
+  background: #f4f7fb;
+  color: #102e52;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.report-emergency-header {
+  max-width: 1000px;
+  margin: 0 auto 25px;
+}
+
+
+.back-button {
+  border: none;
+  background: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 22px;
+  padding: 0;
+
+  color: #667085;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.back-button:hover {
+  color: #ff7100;
+}
+
+
+.emergency-page-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+.emergency-title-icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #fff0ed;
+  color: #d92d20;
+
+  font-size: 23px;
+}
+
+
+.emergency-page-title p {
+  margin: 0 0 5px;
+
+  color: #ff7100;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+
+.emergency-page-title h1 {
+  margin: 0;
+
+  font-size: 30px;
+  font-weight: 850;
+
+  color: #102e52;
+}
+
+
+/* =========================================================
+   WARNING
+   ========================================================= */
+
+.emergency-warning {
+  max-width: 1000px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+
+  margin: 0 auto 22px;
+  padding: 18px 20px;
+
+  background: #fff4ed;
+
+  border: 1px solid #ffd8c2;
+  border-radius: 14px;
+
+  color: #d92d20;
+}
+
+
+.emergency-warning > svg {
+  margin-top: 3px;
+  font-size: 20px;
+}
+
+
+.emergency-warning strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #102e52;
+
+  font-size: 14px;
+}
+
+
+.emergency-warning p {
+  margin: 0;
+
+  color: #667085;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.emergency-form-card {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 30px;
+
+  background: white;
+
+  border: 1px solid #e7ebef;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 10px 30px rgba(16, 46, 82, 0.06);
+}
+
+
+.form-section {
+  margin-bottom: 28px;
+}
+
+
+.form-section h2 {
+  margin: 0 0 5px;
+
+  color: #102e52;
+
+  font-size: 16px;
+
+  font-weight: 800;
+}
+
+
+.form-section > p {
+  margin: 0 0 15px;
+
+  color: #777;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   EMERGENCY TYPES
+   ========================================================= */
+
+.emergency-types {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 14px;
+}
+
+
+.emergency-type-card {
+  min-height: 115px;
+
+  border: 1px solid #e5eaf0;
+
+  border-radius: 12px;
+
+  background: #fff;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  color: #667085;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.emergency-type-card span {
+  font-size: 22px;
+}
+
+
+.emergency-type-card strong {
+  font-size: 12px;
+}
+
+
+.emergency-type-card:hover {
+  border-color: #ff7100;
+
+  transform: translateY(-2px);
+}
+
+
+.emergency-type-card.selected {
+  background: #fff4ed;
+
+  border-color: #ff7100;
+
+  color: #d92d20;
+
+  box-shadow:
+    0 6px 18px rgba(255, 113, 0, 0.12);
+}
+
+
+/* =========================================================
+   SEVERITY
+   ========================================================= */
+
+.severity-options {
+  display: flex;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+
+.severity-btn {
+  min-width: 105px;
+
+  padding: 11px 18px;
+
+  border-radius: 8px;
+
+  border: 1px solid #e3e7ec;
+
+  background: white;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.severity-btn.low {
+  color: #168348;
+}
+
+
+.severity-btn.medium {
+  color: #b77900;
+}
+
+
+.severity-btn.high {
+  color: #e87800;
+}
+
+
+.severity-btn.critical {
+  color: #d92d20;
+}
+
+
+.severity-btn.active.low {
+  background: #e8f7ed;
+  border-color: #168348;
+}
+
+
+.severity-btn.active.medium {
+  background: #fff5dc;
+  border-color: #d4a000;
+}
+
+
+.severity-btn.active.high {
+  background: #fff0e6;
+  border-color: #ff7100;
+}
+
+
+.severity-btn.active.critical {
+  background: #ffebeb;
+  border-color: #d92d20;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.input-group {
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 16px;
+
+  border: 1px solid #e0e5eb;
+
+  border-radius: 9px;
+
+  background: #fafbfd;
+
+  color: #ff7100;
+}
+
+
+.input-group input {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #102e52;
+
+  font-family: inherit;
+
+  font-size: 13px;
+}
+
+
+.input-group:focus-within {
+  border-color: #ff7100;
+
+  box-shadow:
+    0 0 0 3px rgba(255, 113, 0, 0.08);
+}
+
+
+.form-section textarea {
+  width: 100%;
+
+  padding: 15px;
+
+  border: 1px solid #e0e5eb;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  resize: vertical;
+
+  background: #fafbfd;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  color: #102e52;
+}
+
+
+.form-section textarea:focus {
+  border-color: #ff7100;
+
+  box-shadow:
+    0 0 0 3px rgba(255, 113, 0, 0.08);
+}
+
+
+/* =========================================================
+   EMERGENCY LOCATION / MAP SECTION
+   ========================================================= */
+
+.emergency-location-map-section {
+  margin-top: 10px;
+}
+
+
+.emergency-location-map-section > p {
+  margin: 0 0 15px;
+
+  color: #777;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   Current Location Button
+   --------------------------------------------------------- */
+
+.current-location-btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-bottom: 15px;
+
+  padding: 11px 17px;
+
+  border: 1px solid #dbe3ec;
+
+  border-radius: 9px;
+
+  background: #102e52;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+
+.current-location-btn:hover {
+  background: #173f6d;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 14px rgba(16, 46, 82, 0.15);
+}
+
+
+.current-location-btn:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+.current-location-btn svg {
+  font-size: 14px;
+}
+
+
+/* ---------------------------------------------------------
+   Map Wrapper
+   --------------------------------------------------------- */
+
+.emergency-map-wrapper {
+  width: 100%;
+
+  height: 380px;
+
+  overflow: hidden;
+
+  margin-top: 2px;
+
+  border: 1px solid #dfe5ec;
+
+  border-radius: 12px;
+
+  background: #e9eef4;
+
+  box-shadow:
+    0 5px 18px rgba(16, 46, 82, 0.07);
+}
+
+
+/*
+   IMPORTANT:
+   Leaflet requires an explicit height.
+   Without this, the map can collapse to zero height.
+*/
+
+.emergency-map-wrapper .leaflet-container {
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 380px;
+
+  border-radius: 12px;
+
+  z-index: 1;
+}
+
+
+/* ---------------------------------------------------------
+   Fallback selectors in case the JSX uses a different
+   map wrapper class.
+   --------------------------------------------------------- */
+
+.emergency-location-map {
+  width: 100%;
+
+  height: 380px;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+}
+
+
+.emergency-location-map .leaflet-container {
+  width: 100%;
+
+  height: 380px;
+
+  min-height: 380px;
+
+  border-radius: 12px;
+}
+
+
+.report-emergency-map {
+  width: 100%;
+
+  height: 380px;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+}
+
+
+.report-emergency-map .leaflet-container {
+  width: 100%;
+
+  height: 380px;
+
+  min-height: 380px;
+
+  border-radius: 12px;
+}
+
+
+/* ---------------------------------------------------------
+   Global Leaflet safety rule inside this page
+   --------------------------------------------------------- */
+
+.report-emergency-page .leaflet-container {
+  width: 100%;
+
+  min-height: 380px;
+}
+
+
+/* =========================================================
+   SELECTED LOCATION INFORMATION
+   ========================================================= */
+
+.location-selected {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-top: 14px;
+
+  padding: 14px 16px;
+
+  border: 1px solid #b7dfc6;
+
+  border-radius: 10px;
+
+  background: #f0faf3;
+
+  color: #168348;
+}
+
+
+.location-selected > svg {
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  font-size: 17px;
+}
+
+
+.location-selected strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #102e52;
+
+  font-size: 13px;
+}
+
+
+.location-selected span {
+  display: block;
+
+  color: #4f6357;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   LOCATION MESSAGE
+   ========================================================= */
+
+.location-message {
+  margin-top: 10px;
+
+  padding: 10px 13px;
+
+  border-radius: 8px;
+
+  background: #f5f7fa;
+
+  color: #667085;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   LEAFLET POPUP
+   ========================================================= */
+
+.report-emergency-page .leaflet-popup-content-wrapper {
+  border-radius: 10px;
+
+  box-shadow:
+    0 8px 25px rgba(16, 46, 82, 0.16);
+}
+
+
+.report-emergency-page .leaflet-popup-content {
+  margin: 12px 15px;
+
+  color: #102e52;
+
+  font-family: inherit;
+
+  font-size: 12px;
+}
+
+
+.report-emergency-page .leaflet-control-zoom {
+  border: none;
+
+  box-shadow:
+    0 3px 12px rgba(16, 46, 82, 0.15);
+}
+
+
+.report-emergency-page .leaflet-control-zoom a {
+  color: #102e52;
+
+  font-weight: 700;
+}
+
+
+.report-emergency-page .leaflet-control-zoom a:hover {
+  color: #ff7100;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+   ========================================================= */
+
+.submit-emergency-btn {
+  width: 100%;
+
+  min-height: 52px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  background: #d92d20;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+
+  box-shadow:
+    0 8px 20px rgba(217, 45, 32, 0.18);
+}
+
+
+.submit-emergency-btn:hover {
+  background: #b42318;
+
+  transform: translateY(-1px);
+}
+
+
+.submit-emergency-btn:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .report-emergency-page {
+    padding: 20px;
+  }
+
+
+  .emergency-form-card {
+    padding: 20px;
+  }
+
+
+  .emergency-types {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .emergency-map-wrapper,
+  .emergency-location-map,
+  .report-emergency-map {
+    height: 330px;
+  }
+
+
+  .emergency-map-wrapper .leaflet-container,
+  .emergency-location-map .leaflet-container,
+  .report-emergency-map .leaflet-container,
+  .report-emergency-page .leaflet-container {
+    min-height: 330px;
+    height: 330px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .report-emergency-page {
+    padding: 15px;
+  }
+
+
+  .emergency-page-title h1 {
+    font-size: 24px;
+  }
+
+
+  .emergency-title-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+
+  .emergency-types {
+    grid-template-columns: 1fr;
+  }
+
+
+  .severity-options {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .severity-btn {
+    min-width: auto;
+  }
+
+
+  .emergency-form-card {
+    padding: 17px;
+  }
+
+
+  .emergency-map-wrapper,
+  .emergency-location-map,
+  .report-emergency-map {
+    height: 280px;
+  }
+
+
+  .emergency-map-wrapper .leaflet-container,
+  .emergency-location-map .leaflet-container,
+  .report-emergency-map .leaflet-container,
+  .report-emergency-page .leaflet-container {
+    min-height: 280px;
+    height: 280px;
+  }
+
+
+  .current-location-btn {
+    width: 100%;
+  }
+
+}
