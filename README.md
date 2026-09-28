@@ -361,8 +361,8 @@ For production deployment, additional work would be recommended, including:
 
 **Deewakar Mandal**
 
-B.Tech — Computer Science / Information Technology
+B.Tech — Information Technology
 
 ## License
 
-This project is currently maintained as an academic and portfolio project. A formal open-source license can be added if the repository is later released under specific licensing terms.
+This project is developed for academic and portfolio purposes.
