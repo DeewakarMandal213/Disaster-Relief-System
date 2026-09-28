@@ -1,318 +1,368 @@
-# Local Disaster Relief Coordination Platform
+# ReliefConnect — Local Disaster Relief Coordination Platform
 
-A full-stack web-based disaster relief coordination platform designed to connect citizens, volunteers, donors, NGOs, government authorities, and administrators through a centralized system for emergency reporting, assistance coordination, relief camps, donations, operations, and disaster-response monitoring.
+A full-stack web platform for coordinating disaster-response activities across citizens, volunteers, donors, NGOs, government authorities, and system administrators.
 
----
+## Overview
 
-## 📌 Project Overview
+ReliefConnect provides a centralized platform for reporting emergencies, requesting assistance, coordinating relief camps and operations, managing donations and distributions, and monitoring disaster-response activity.
 
-The **Local Disaster Relief Coordination Platform** is a centralized web application developed to improve coordination during disaster and emergency situations.
+## Core Objectives
 
-The platform brings multiple stakeholders together in a single system:
+- Provide citizens with a way to report emergencies and request assistance.
+- Help volunteers participate in relief activities.
+- Enable donors to contribute resources.
+- Allow NGOs to manage relief contributions and camps.
+- Provide government authorities with operational monitoring and coordination tools.
+- Provide administrators with system-wide monitoring and control.
+- Support location-based disaster and relief-camp visualization.
+- Centralize emergency, assistance, operation, donation, and distribution information.
 
-- Citizens can report emergencies and request assistance.
-- Volunteers can participate in relief activities and manage assigned tasks.
-- Donors can contribute resources and donations.
-- NGOs can coordinate relief camps, do contributions, and response activities.
-- Government authorities can monitor emergencies, assistance requests, camps, operations, donations, volunteers, NGOs, and relief distribution.
-- Administrators provide system-wide monitoring and centralized platform control.
+## Main User Roles
 
-The system combines role-based access control, real-time dashboard information, emergency management, map-based response visualization, relief camp management, assistance coordination, and administrative monitoring.
+| Role | Main Responsibility |
+|---|---|
+| Citizen | Report emergencies, request assistance, and view disaster information |
+| Volunteer | Participate in relief operations and response activities |
+| Donor | Contribute donations and resources |
+| NGO | Coordinate NGO activities, camps, and contributions |
+| Government | Monitor and coordinate disaster-response operations |
+| Admin | System-wide command, monitoring, management, approvals, analytics, and oversight |
 
----
+## Major Modules
 
-## 🎯 Objectives
-
-The major objectives of the project are:
-
-1. Provide a centralized platform for disaster relief coordination.
-2. Allow citizens to report emergencies quickly.
-3. Enable citizens to request different types of emergency assistance.
-4. Connect volunteers with relief operations.
-5. Support donations and resource contributions.
-6. Allow NGOs to coordinate relief activities and camps.
-7. Provide government authorities with centralized monitoring and management.
-8. Provide administrators with system-wide oversight.
-9. Display emergency and relief information using map-based interfaces.
-10. Improve visibility and coordination of disaster response activities.
-
----
-
-## 👥 User Roles
-
-The platform supports the following major user roles:
-
-### 👤 Citizen
-
-Citizens can:
-
-- Register and log in.
-- Report emergencies.
-- Request assistance.
-- Share location information.
-- View disaster-related information.
-- View relief camps.
-- Access disaster maps.
-- Monitor their submitted requests.
-
-### 🤝 Volunteer
-
-Volunteers can:
-
-- Register as volunteers.
-- Access their volunteer dashboard.
-- Participate in relief operations.
-- View and manage relevant relief activities.
-
-### 💝 Donor
-
-Donors can:
-
-- Access the donation module.
-- Contribute donations and resources.
-- View donation-related information.
-
-### 🏢 NGO
-
-NGOs can:
-
-- Manage NGO activities.
-- Coordinate relief camps.
-- Manage contributions.
-- Monitor response information.
-- Access NGO response maps.
-
-### 🏛️ Government
-
-Government authorities have a centralized management interface for:
-
-- Emergency management
+### Citizen Portal
+- Citizen dashboard
+- Emergency reporting
 - Assistance requests
+- Disaster map
+- Relief-camp information
+- Location-based response information
+
+### Volunteer Portal
+- Volunteer dashboard
+- Relief-operation participation
+- Response activity management
+
+### Donor Portal
+- Donation management
+- Contribution information
+- Donation-related activity
+
+### NGO Portal
+- NGO dashboard
 - Relief camps
-- Relief distribution
-- Donations
+- NGO contributions
+- Response map
+- NGO coordination activities
+
+### Government Portal
+- Government dashboard
+- Emergency management
+- Assistance management
+- Relief camps
+- Operations
 - NGOs
 - Volunteers
-- Relief operations
+- Donations
+- Distribution
 - Reports
-- Response maps
+- Response map
 
-### 🛡️ Administrator
+### Admin Portal
+The Admin Portal acts as the central command and monitoring authority of the platform.
 
-The Admin module provides system-wide oversight through an administrative portal.
-
-The Admin portal includes:
-
+Administrative sections include:
 - Dashboard
 - Command Center
-- Emergency Management
 - Disaster Map
-- Assistance Request Management
-- Relief Camp Management
-- Operations Management
-- NGO Management
-- Volunteer Management
-- Citizen/User Management
-- Relief Distribution
-- Donations Management
+- Emergencies
+- Assistance Requests
+- Relief Camps
+- Operations
+- NGOs
+- Volunteers
+- Citizens / Users
+- Donations
+- Distribution
 - Approvals
 - Reports & Analytics
-- Activity Logs
 - Announcements
+- Activity Logs
 - System Settings
 
----
+## Technology Stack
 
-# 🚨 Major Features
-
-## Emergency Reporting
-
-Citizens can submit emergency reports through the emergency reporting interface.
-
-Emergency information can be monitored and managed through government and administrative modules.
-
----
-
-## 🆘 Assistance Requests
-
-Citizens can submit requests for assistance.
-
-The platform provides management interfaces for monitoring and processing assistance requests.
-
----
-
-## 🗺️ Disaster Maps
-
-The application provides map-based disaster-response interfaces.
-
-Location information can be used to visualize:
-
-- Emergency reports
-- Assistance-related locations
-- Relief camps
-- Response information
-
-Map functionality is available across relevant Citizen, Government, NGO, and Admin interfaces.
-
----
-
-## ⛺ Relief Camp Management
-
-The platform supports relief camp management.
-
-Relief camps can be created and monitored with location and capacity-related information.
-
-Camp information is integrated into response maps so that relevant users can identify available relief infrastructure.
-
----
-
-## 🤝 Volunteer Management
-
-The platform supports volunteer registration and volunteer-related relief activities.
-
-Government and administrative modules provide monitoring capabilities for volunteer participation.
-
----
-
-## 🏢 NGO Management
-
-NGOs are integrated into the disaster-response workflow.
-
-The platform supports NGO-related activities, contributions, camps, and response monitoring.
-
----
-
-## 💰 Donations Management
-
-The platform provides donation functionality for disaster relief.
-
-Donations can be monitored through donor, government, and administrative interfaces.
-
----
-
-## 📦 Relief Distribution
-
-Relief distribution is incorporated into the platform to support coordination of relief resources and their distribution during disaster-response activities.
-
----
-
-## ⚙️ Operations Management
-
-Relief operations can be created and monitored as part of the overall disaster-response workflow.
-
-Government and administrative modules provide centralized visibility into active operations.
-
----
-
-## 📊 Dashboards
-
-The application provides dashboard interfaces for different roles.
-
-The administrative dashboard provides system-wide information including:
-
-- Active emergencies
-- Assistance requests
-- Relief operations
-- Relief camps
-- Other response information
-
----
-
-## 🛡️ Admin Command Center
-
-The Admin Command Center provides centralized administrative monitoring.
-
-It provides:
-
-- Priority response queue
-- Active emergency monitoring
-- Assistance monitoring
-- Relief camp monitoring
-- Operation monitoring
-- Response statistics
-- Quick access to management modules
-- System-wide administrative oversight
-
----
-
-# 🏗️ Technology Stack
-
-## Frontend
-
-- React.js
+### Frontend
+- React
 - Vite
 - React Router
-- Bootstrap
 - Axios
+- CSS / Bootstrap
 - React Icons
-- Leaflet / map-based interfaces
-- CSS
+- Leaflet
 
-## Backend
-
+### Backend
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
-- JWT-based authentication
-- bcrypt-based password protection
-- CORS
-- dotenv
+- JWT authentication
+- Role-based authorization
 
-## Development Tools
-
-- Visual Studio Code
+### Development Tools
 - Git
 - GitHub
 - npm
+- VS Code
 
----
-
-# 🏛️ System Architecture
-
-The application follows a client-server architecture.
+## Project Structure
 
 ```text
-                    ┌─────────────────────────┐
-                    │       Users             │
-                    │                         │
-                    │ Citizen / Volunteer     │
-                    │ Donor / NGO             │
-                    │ Government / Admin      │
-                    └────────────┬────────────┘
-                                 │
-                                 ▼
-                    ┌─────────────────────────┐
-                    │     React Frontend      │
-                    │                         │
-                    │ Pages / Components       │
-                    │ Dashboards / Maps        │
-                    │ Authentication           │
-                    └────────────┬────────────┘
-                                 │
-                                 │ HTTP / REST API
-                                 ▼
-                    ┌─────────────────────────┐
-                    │    Node.js + Express    │
-                    │                         │
-                    │ Routes                   │
-                    │ Controllers              │
-                    │ Middleware               │
-                    │ Authentication           │
-                    └────────────┬────────────┘
-                                 │
-                                 ▼
-                    ┌─────────────────────────┐
-                    │        MongoDB           │
-                    │                         │
-                    │ Users                    │
-                    │ Emergencies              │
-                    │ Assistance Requests      │
-                    │ Donations                │
-                    │ Relief Camps             │
-                    │ Operations               │
-                    │ Distribution              │
-                    │ Activity Logs            │
-                    │ Announcements            │
-                    │ System Settings          │
-                    └─────────────────────────┘
+Disaster-Relief-System/
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── server.js
+│   ├── package.json
+│   └── .gitignore
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── styles/
+│   │   └── utils/
+│   ├── package.json
+│   └── vite.config.js
+└── README.md
+```
+
+## Application Architecture
+
+```text
+                         ReliefConnect
+                              │
+                ┌─────────────┴─────────────┐
+                │                           │
+             Frontend                    Backend
+              React                     Node/Express
+                │                           │
+        ┌───────┼────────┐          ┌───────┼────────┐
+        │       │        │          │       │        │
+      Portals  Maps   Services    Routes  Controllers Models
+        │       │        │          │       │        │
+        └───────┴────────┘          └───────┴────────┘
+                                            │
+                                         MongoDB
+```
+
+## Authentication and Authorization
+
+The application uses role-based access control.
+
+Authentication is handled through backend authentication routes and controllers. Protected frontend routes restrict access to role-specific portals.
+
+Backend middleware is used for authentication and role authorization.
+
+Supported roles include:
+
+```text
+citizen
+volunteer
+donor
+ngo
+government
+admin
+```
+
+## Backend Organization
+
+The backend is organized into:
+
+- `controllers/` — application and business logic
+- `models/` — MongoDB/Mongoose schemas
+- `routes/` — API route definitions
+- `middleware/` — authentication and authorization
+- `config/` — database configuration
+
+Major route groups include:
+
+```text
+/auth
+/admin
+/dashboard
+/assistance
+/emergency
+/government
+/ngo
+/relief-camp
+/volunteer
+/donor
+```
+
+## Data Models
+
+The backend contains models for major platform entities, including:
+
+- User
+- Emergency
+- Assistance
+- ReliefCamp
+- GovernmentOperation
+- Donation
+- ReliefDistribution
+- NGOContribution
+- ActivityLog
+- Announcement
+- SystemSetting
+
+## Local Development Setup
+
+### Prerequisites
+
+Install:
+
+- Node.js
+- npm
+- MongoDB or MongoDB Atlas
+- Git
+
+### Clone the Repository
+
+```bash
+git clone <your-github-repository-url>
+cd Disaster-Relief-System
+```
+
+### Backend
+
+```bash
+cd backend
+npm install
+```
+
+Create `backend/.env` and configure the environment variables required by the application.
+
+Example:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+PORT=5001
+```
+
+Never commit `.env` or other secrets.
+
+Start the backend:
+
+```bash
+npm start
+```
+
+For development, if available:
+
+```bash
+npm run dev
+```
+
+### Frontend
+
+Open another terminal:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Vite will display the local development URL.
+
+## Environment and Security
+
+Do not commit:
+
+```text
+.env
+node_modules/
+dist/
+.DS_Store
+```
+
+Never publish database credentials, JWT secrets, API keys, passwords, or other private configuration.
+
+## Git Workflow
+
+Check the working tree:
+
+```bash
+git status
+```
+
+Stage changes:
+
+```bash
+git add .
+```
+
+Review:
+
+```bash
+git diff --cached --stat
+git diff --cached --check
+```
+
+Commit:
+
+```bash
+git commit -m "Describe the change"
+```
+
+Push:
+
+```bash
+git push origin main
+```
+
+## Project Status
+
+The project contains role-based portals for:
+
+- Citizen
+- Volunteer
+- Donor
+- NGO
+- Government
+- Admin
+
+The Admin Portal provides centralized system-wide monitoring and management capabilities, while the Government Portal focuses on government-level disaster-response operations.
+
+## Production Considerations
+
+For production deployment, additional work would be recommended, including:
+
+- secure production secret management
+- database security and backups
+- comprehensive input validation
+- rate limiting
+- security auditing
+- production logging and monitoring
+- automated testing
+- CI/CD
+- deployment-specific environment configuration
+
+## Author
+
+**Deewakar Mandal**
+
+B.Tech — Computer Science / Information Technology
+
+## License
+
+This project is currently maintained as an academic and portfolio project. A formal open-source license can be added if the repository is later released under specific licensing terms.
