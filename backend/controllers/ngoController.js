@@ -4,6 +4,11 @@ const Donation = require("../models/Donation");
 const ReliefCamp = require("../models/ReliefCamp");
 const User = require("../models/User");
 
+const {
+  sendRequestStatusEmail,
+  sendAssignmentEmail,
+} = require("../utils/requestNotifications");
+
 const getNgoDashboard = async (req, res) => {
   try {
     const ngoId = req.user._id;
@@ -99,7 +104,17 @@ const assignVolunteerToEmergency = async (req, res) => {
     emergency.status = "Acknowledged";
     await emergency.save();
 
+    void sendAssignmentEmail(
+      "emergency",
+      emergency,
+      volunteer,
+      "NGO"
+    ).catch((error) => {
+      console.error("NGO emergency assignment email error:", error.message);
+    });
+
     const updated = await Emergency.findById(emergency._id).populate("assignedVolunteer", "fullName email phone");
+    await sendAssignmentEmail(volunteer.email, "Emergency Assigned", { fullName: volunteer.fullName, emergencyId: emergency._id });
     res.status(200).json({ success: true, message: "Volunteer assigned successfully.", emergency: updated });
   } catch (error) {
     console.error("Assign NGO emergency volunteer error:", error);
@@ -124,7 +139,17 @@ const assignVolunteerToAssistance = async (req, res) => {
     assistance.status = "Acknowledged";
     await assistance.save();
 
+    void sendAssignmentEmail(
+      "assistance",
+      assistance,
+      volunteer,
+      "NGO"
+    ).catch((error) => {
+      console.error("NGO assistance assignment email error:", error.message);
+    });
+
     const updated = await Assistance.findById(assistance._id).populate("assignedVolunteer", "fullName email phone");
+    await sendAssignmentEmail(volunteer.email, "Assistance Request Assigned", { fullName: volunteer.fullName, assistanceId: assistance._id });
     res.status(200).json({ success: true, message: "Volunteer assigned successfully.", assistance: updated });
   } catch (error) {
     console.error("Assign NGO assistance volunteer error:", error);
@@ -140,11 +165,25 @@ const updateNgoEmergencyStatus = async (req, res) => {
 
     const emergency = await Emergency.findById(req.params.id);
     if (!emergency) return res.status(404).json({ success: false, message: "Emergency request not found." });
+    const previousStatus = emergency.status;
+
     if (["Resolved", "Rejected"].includes(emergency.status) && emergency.status !== status) return res.status(400).json({ success: false, message: "This emergency is already closed." });
 
     if (status !== "Rejected") emergency.handledByNGO = req.user._id;
     emergency.status = status;
     await emergency.save();
+
+    if (previousStatus !== emergency.status) {
+      void sendRequestStatusEmail(
+        "emergency",
+        emergency,
+        previousStatus,
+        emergency.status,
+        "NGO"
+      ).catch((error) => {
+        console.error("Emergency status email error:", error.message);
+      });
+    }
 
     res.status(200).json({ success: true, message: `Emergency status changed to ${status}.`, emergency });
   } catch (error) {
@@ -161,11 +200,25 @@ const updateNgoAssistanceStatus = async (req, res) => {
 
     const assistance = await Assistance.findById(req.params.id);
     if (!assistance) return res.status(404).json({ success: false, message: "Assistance request not found." });
+    const previousStatus = assistance.status;
+
     if (["Fulfilled", "Rejected"].includes(assistance.status) && assistance.status !== status) return res.status(400).json({ success: false, message: "This assistance request is already closed." });
 
     if (status !== "Rejected") assistance.handledByNGO = req.user._id;
     assistance.status = status;
     await assistance.save();
+
+    if (previousStatus !== assistance.status) {
+      void sendRequestStatusEmail(
+        "assistance",
+        assistance,
+        previousStatus,
+        assistance.status,
+        "NGO"
+      ).catch((error) => {
+        console.error("Assistance status email error:", error.message);
+      });
+    }
 
     res.status(200).json({ success: true, message: `Assistance status changed to ${status}.`, assistance });
   } catch (error) {

@@ -7,6 +7,11 @@ const ReliefCamp = require("../models/ReliefCamp");
 const NGOContribution = require("../models/NGOContribution");
 const GovernmentOperation = require("../models/GovernmentOperation");
 
+const {
+  sendRequestStatusEmail,
+   sendAssignmentEmail,
+} = require("../utils/requestNotifications");
+
 const isValidId = (id) => mongoose.Types.ObjectId.isValid(id);
 
 const getGovernmentDashboard = async (req, res) => {
@@ -225,8 +230,21 @@ const takeGovernmentAction = async (req, res, isEmergency) => {
     }
 
     record.handledByGovernment = req.user._id;
+    const previousStatus = record.status;
     record.status = "In Progress";
     await record.save();
+
+    if (previousStatus !== record.status) {
+      void sendRequestStatusEmail(
+        isEmergency ? "emergency" : "assistance",
+        record,
+        previousStatus,
+        record.status,
+        "Government"
+      ).catch((error) => {
+        console.error("Government status email error:", error.message);
+      });
+    }
 
     const operation = await GovernmentOperation.create({
       governmentOfficer: req.user._id,
@@ -261,8 +279,37 @@ const assignNGOToEmergency = async (req, res, isEmergency) => {
     if (!record) return res.status(404).json({ success: false, message: "Request not found." });
 
     record.handledByNGO = ngo._id;
+    const previousStatus = record.status;
     record.status = "Acknowledged";
     await record.save();
+
+    if (previousStatus !== record.status) {
+      void sendRequestStatusEmail(
+        isEmergency ? "emergency" : "assistance",
+        record,
+        previousStatus,
+        record.status,
+        "Government"
+      ).catch((error) => {
+        console.error(
+          "Government NGO-assignment email error:",
+          error.message
+        );
+      });
+    }
+
+    void sendAssignmentEmail(
+      isEmergency ? "emergency" : "assistance",
+      record,
+      ngo,
+      "Government"
+    ).catch((error) => {
+      console.error(
+        "Government NGO assignment notification error:",
+        error.message
+      );
+    });
+
 
     const operation = await GovernmentOperation.create({
       governmentOfficer: req.user._id,
@@ -298,8 +345,37 @@ const assignVolunteerToRequest = async (req, res, isEmergency) => {
     if (!record) return res.status(404).json({ success: false, message: "Request not found." });
 
     record.assignedVolunteer = volunteer._id;
+    const previousStatus = record.status;
     record.status = "Acknowledged";
     await record.save();
+
+    if (previousStatus !== record.status) {
+      void sendRequestStatusEmail(
+        isEmergency ? "emergency" : "assistance",
+        record,
+        previousStatus,
+        record.status,
+        "Government"
+      ).catch((error) => {
+        console.error(
+          "Government volunteer-assignment email error:",
+          error.message
+        );
+      });
+    }
+
+    void sendAssignmentEmail(
+      isEmergency ? "emergency" : "assistance",
+      record,
+      volunteer,
+      "Government"
+    ).catch((error) => {
+      console.error(
+        "Government volunteer assignment notification error:",
+        error.message
+      );
+    });
+
 
     const operation = await GovernmentOperation.create({
       governmentOfficer: req.user._id,

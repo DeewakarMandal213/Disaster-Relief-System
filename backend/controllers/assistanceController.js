@@ -1,4 +1,7 @@
 const Assistance = require("../models/Assistance");
+const {
+  sendRequestCreatedEmail,
+} = require("../utils/requestNotifications");
 
 // =========================================================
 // CREATE ASSISTANCE REQUEST
@@ -25,6 +28,11 @@ const createAssistance = async (req, res) => {
       longitude,
       contactNumber,
       description,
+    });
+
+    // Send confirmation email without blocking the saved assistance request
+    void sendRequestCreatedEmail("assistance", assistance).catch((error) => {
+      console.error("Assistance confirmation email error:", error.message);
     });
 
     res.status(201).json({

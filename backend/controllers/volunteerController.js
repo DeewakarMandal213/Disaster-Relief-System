@@ -1,6 +1,10 @@
 const Emergency = require("../models/Emergency");
 const Assistance = require("../models/Assistance");
 
+const {
+  sendRequestStatusEmail,
+} = require("../utils/requestNotifications");
+
 // =========================================================
 // GET VOLUNTEER REQUESTS
 // Returns unassigned active emergency + assistance requests
@@ -215,6 +219,13 @@ const updateEmergencyStatus = async (req, res) => {
       });
     }
 
+    const previousRequest = await Emergency.findOne({
+      _id: req.params.id,
+      assignedVolunteer: req.user._id,
+    }).select("status");
+
+    const previousStatus = previousRequest?.status;
+
     const emergency = await Emergency.findOneAndUpdate(
       {
         _id: req.params.id,
@@ -227,6 +238,18 @@ const updateEmergencyStatus = async (req, res) => {
         new: true,
       }
     ).populate("user", "fullName email phone");
+
+    if (emergency && previousStatus !== emergency.status) {
+      void sendRequestStatusEmail(
+        "emergency",
+        emergency,
+        previousStatus,
+        emergency.status,
+        "Volunteer"
+      ).catch((error) => {
+        console.error("Volunteer emergency status email error:", error.message);
+      });
+    }
 
     if (!emergency) {
       return res.status(404).json({
@@ -277,6 +300,13 @@ const updateAssistanceStatus = async (req, res) => {
       });
     }
 
+    const previousRequest = await Assistance.findOne({
+      _id: req.params.id,
+      assignedVolunteer: req.user._id,
+    }).select("status");
+
+    const previousStatus = previousRequest?.status;
+
     const assistance = await Assistance.findOneAndUpdate(
       {
         _id: req.params.id,
@@ -295,6 +325,21 @@ const updateAssistanceStatus = async (req, res) => {
         success: false,
         message:
           "Assistance request not found or not assigned to you.",
+      });
+    }
+
+    if (previousStatus !== assistance.status) {
+      void sendRequestStatusEmail(
+        "assistance",
+        assistance,
+        previousStatus,
+        assistance.status,
+        "Volunteer"
+      ).catch((error) => {
+        console.error(
+          "Volunteer assistance status email error:",
+          error.message
+        );
       });
     }
 

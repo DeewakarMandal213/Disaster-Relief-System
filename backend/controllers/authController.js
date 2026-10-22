@@ -2,6 +2,11 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const {
+  sendRegistrationEmail,
+  sendLoginEmail,
+} = require("../utils/requestNotifications");
+
 // ==============================
 // Register User
 // ==============================
@@ -30,6 +35,11 @@ const registerUser = async (req, res) => {
       phone,
       address,
       role,
+    });
+
+    // Send welcome email without blocking registration
+    void sendRegistrationEmail(user).catch((error) => {
+      console.error("Registration email error:", error.message);
     });
 
     // Remove password from response
@@ -105,6 +115,11 @@ const loginUser = async (req, res) => {
         expiresIn: "7d",
       }
     );
+
+    // Send login notification without blocking authentication
+    void sendLoginEmail(user).catch((error) => {
+      console.error("Login email error:", error.message);
+    });
 
     // Remove password before sending user data
     const userData = {

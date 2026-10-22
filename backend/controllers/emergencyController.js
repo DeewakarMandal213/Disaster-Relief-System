@@ -1,4 +1,7 @@
 const Emergency = require("../models/Emergency");
+const {
+  sendRequestCreatedEmail,
+} = require("../utils/requestNotifications");
 
 
 // =========================================================
@@ -33,6 +36,11 @@ const createEmergency = async (req, res) => {
       contactNumber,
 
       description,
+    });
+
+    // Send confirmation email without blocking the saved emergency
+    void sendRequestCreatedEmail("emergency", emergency).catch((error) => {
+      console.error("Emergency confirmation email error:", error.message);
     });
 
     res.status(201).json({

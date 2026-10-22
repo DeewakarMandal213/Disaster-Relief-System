@@ -11,6 +11,10 @@ const Announcement = require("../models/Announcement");
 const ActivityLog = require("../models/ActivityLog");
 const SystemSetting = require("../models/SystemSetting");
 
+const {
+  sendAssignmentEmail,
+} = require("../utils/requestNotifications");
+
 const isValidId = (id) => mongoose.Types.ObjectId.isValid(id);
 const activeStatuses = ["Pending", "Acknowledged", "In Progress", "Planned"];
 
@@ -87,6 +91,59 @@ const getAdminOverview = async (req, res) => {
   }
 };
 
+
+const notifyAdminAssignment = async (
+  type,
+  record,
+  field,
+  previousAssigneeId
+) => {
+  const assigneeId = record[field];
+
+  if (
+    !assigneeId ||
+    String(assigneeId) === String(previousAssigneeId || "")
+  ) {
+    return;
+  }
+
+  const expectedRoles = {
+    handledByNGO: "NGO",
+    handledByGovernment: "Government",
+    assignedVolunteer: "Volunteer",
+  };
+
+  try {
+    const assignee = await User.findById(assigneeId)
+      .select("fullName email role");
+
+    if (!assignee || assignee.role !== expectedRoles[field]) {
+      console.warn(
+        `Admin assignment notification skipped: invalid assignee for ${field}.`
+      );
+      return;
+    }
+
+    void sendAssignmentEmail(
+      type,
+      record,
+      assignee,
+      "Admin"
+    ).catch((error) => {
+      console.error(
+        "Admin assignment email error:",
+        error.message
+      );
+    });
+  } catch (error) {
+    console.error(
+      "Admin assignment lookup error:",
+      error.message
+    );
+  }
+};
+
+
 const getAdminEmergencies = async (req, res) => {
   try {
     const emergencies = await populateRequest(Emergency.find().sort({ createdAt: -1 }));
@@ -100,6 +157,12 @@ const updateEmergency = async (req, res) => {
   try {
     const emergency = await Emergency.findById(req.params.id);
     if (!emergency) return res.status(404).json({ success: false, message: "Emergency not found." });
+
+    const previousAssignments = {
+      handledByNGO: emergency.handledByNGO?.toString(),
+      handledByGovernment: emergency.handledByGovernment?.toString(),
+      assignedVolunteer: emergency.assignedVolunteer?.toString(),
+    };
     const allowed = ["Pending", "Acknowledged", "In Progress", "Resolved", "Rejected"];
     if (req.body.status && !allowed.includes(req.body.status)) return res.status(400).json({ success: false, message: "Invalid emergency status." });
     ["status", "severity", "handledByNGO", "handledByGovernment", "assignedVolunteer"].forEach((field) => {
@@ -108,6 +171,28 @@ const updateEmergency = async (req, res) => {
     if (req.body.status !== undefined) emergency.status = req.body.status;
     if (req.body.severity !== undefined) emergency.severity = req.body.severity;
     await emergency.save();
+
+    await Promise.all([
+      notifyAdminAssignment(
+        "emergency",
+        emergency,
+        "handledByNGO",
+        previousAssignments.handledByNGO
+      ),
+      notifyAdminAssignment(
+        "emergency",
+        emergency,
+        "handledByGovernment",
+        previousAssignments.handledByGovernment
+      ),
+      notifyAdminAssignment(
+        "emergency",
+        emergency,
+        "assignedVolunteer",
+        previousAssignments.assignedVolunteer
+      ),
+    ]);
+
     await log(req, "Updated", "Emergencies", `Updated emergency ${emergency._id}.`, emergency._id);
     res.json({ success: true, message: "Emergency updated.", emergency });
   } catch (error) {
@@ -129,6 +214,13 @@ const updateAssistance = async (req, res) => {
   try {
     const assistance = await Assistance.findById(req.params.id);
     if (!assistance) return res.status(404).json({ success: false, message: "Assistance request not found." });
+
+    const previousAssignments = {
+      handledByNGO: assistance.handledByNGO?.toString(),
+      handledByGovernment: assistance.handledByGovernment?.toString(),
+      assignedVolunteer: assistance.assignedVolunteer?.toString(),
+    };
+
     const allowed = ["Pending", "Acknowledged", "In Progress", "Fulfilled", "Rejected"];
     if (req.body.status && !allowed.includes(req.body.status)) return res.status(400).json({ success: false, message: "Invalid assistance status." });
     ["status", "priority"].forEach((field) => {
@@ -138,6 +230,28 @@ const updateAssistance = async (req, res) => {
       if (req.body[field] !== undefined) assistance[field] = isValidId(req.body[field]) ? req.body[field] : null;
     });
     await assistance.save();
+
+    await Promise.all([
+      notifyAdminAssignment(
+        "assistance",
+        assistance,
+        "handledByNGO",
+        previousAssignments.handledByNGO
+      ),
+      notifyAdminAssignment(
+        "assistance",
+        assistance,
+        "handledByGovernment",
+        previousAssignments.handledByGovernment
+      ),
+      notifyAdminAssignment(
+        "assistance",
+        assistance,
+        "assignedVolunteer",
+        previousAssignments.assignedVolunteer
+      ),
+    ]);
+
     await log(req, "Updated", "Assistance", `Updated assistance request ${assistance._id}.`, assistance._id);
     res.json({ success: true, message: "Assistance request updated.", assistance });
   } catch (error) {
